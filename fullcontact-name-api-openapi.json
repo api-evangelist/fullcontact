@@ -1,0 +1,50 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "v2",
+        "title": "FullContact Name API",
+        "description": "The API for managing FullContact Names",
+        "termsOfService": "https:\/\/www.fullcontact.com\/terms\/"
+    },
+    "servers": [
+        "httpsapi.fullcontact.com\/"
+    ],
+    "paths": [],
+    "components": {
+        "schemas": {
+            "Name": {
+                "type": "object",
+                "properties": {
+                    "givenName": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "familyName": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "middleNames": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "prefixes": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "suffixes": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "nicknames": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "fullName": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}
