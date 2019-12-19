@@ -1,0 +1,54 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "v2",
+        "title": "FullContact Location API",
+        "description": "The API for managing FullContact Locations",
+        "termsOfService": "https:\/\/www.fullcontact.com\/terms\/"
+    },
+    "servers": [
+        "httpsapi.fullcontact.com\/"
+    ],
+    "paths": [],
+    "components": {
+        "schemas": {
+            "Address": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "city": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "state": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "county": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "country": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "continent": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "likelihood": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "normalizedLocation": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}
