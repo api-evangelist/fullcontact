@@ -1,0 +1,16 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "v2",
+        "title": "FullContact Company API",
+        "description": "The API for managing FullContact Companys",
+        "termsOfService": "https:\/\/www.fullcontact.com\/terms\/"
+    },
+    "servers": [
+        "httpsapi.fullcontact.com\/"
+    ],
+    "paths": [],
+    "components": {
+        "schemas": []
+    }
+}
