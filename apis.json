@@ -21,8 +21,8 @@
         "social",
         "target"
     ],
-    "created": "2019-12-19",
-    "modified": "2019-12-19",
+    "created": "2019-12-21",
+    "modified": "2019-12-21",
     "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/fullcontact\/master\/apis.json",
     "specificationVersion": "0.14",
     "apis": [
@@ -36,7 +36,7 @@
             "properties": [
                 {
                     "type": "x-openapi",
-                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/fullcontact-name-api-openapi.json"
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/fullcontact\/master\/fullcontact-name-api-openapi.json"
                 }
             ]
         },
@@ -50,7 +50,7 @@
             "properties": [
                 {
                     "type": "x-openapi",
-                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/fullcontact-location-api-openapi.json"
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/fullcontact\/master\/fullcontact-location-api-openapi.json"
                 }
             ]
         },
@@ -64,7 +64,7 @@
             "properties": [
                 {
                     "type": "x-openapi",
-                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/fullcontact-person-api-openapi.json"
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/fullcontact\/master\/fullcontact-person-api-openapi.json"
                 }
             ]
         },
@@ -78,7 +78,7 @@
             "properties": [
                 {
                     "type": "x-openapi",
-                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/fullcontact-company-api-openapi.json"
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/fullcontact\/master\/fullcontact-company-api-openapi.json"
                 }
             ]
         },
@@ -92,7 +92,7 @@
             "properties": [
                 {
                     "type": "x-openapi",
-                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/fullcontact-card-reader-api-openapi.json"
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/fullcontact\/master\/fullcontact-card-reader-api-openapi.json"
                 }
             ]
         },
@@ -106,7 +106,7 @@
             "properties": [
                 {
                     "type": "x-openapi",
-                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/fullcontact-email-api-openapi.json"
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/fullcontact\/master\/fullcontact-email-api-openapi.json"
                 }
             ]
         },
@@ -120,7 +120,7 @@
             "properties": [
                 {
                     "type": "x-openapi",
-                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/fullcontact-icon-api-openapi.json"
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/fullcontact\/master\/fullcontact-icon-api-openapi.json"
                 }
             ]
         },
@@ -134,7 +134,7 @@
             "properties": [
                 {
                     "type": "x-openapi",
-                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/fullcontact-account-stats-api-openapi.json"
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/fullcontact\/master\/fullcontact-account-stats-api-openapi.json"
                 }
             ]
         },
@@ -148,13 +148,17 @@
             "properties": [
                 {
                     "type": "x-openapi",
-                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/fullcontact-batch-process-api-openapi.json"
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/fullcontact\/master\/fullcontact-batch-process-api-openapi.json"
                 }
             ]
         }
     ],
     "include": [],
     "x-common": [
+        {
+            "type": "APIs.json",
+            "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/apis.json"
+        },
         {
             "type": "Base",
             "url": "https:\/\/api.fullcontact.com"
