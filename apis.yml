@@ -1,0 +1,70 @@
+aid: fullcontact
+name: FullContact
+description: >-
+  FullContact is a privacy-safe identity resolution platform that helps
+  businesses recognize and understand customers across digital channels by
+  unifying fragmented identifiers (email, phone, name, address, device IDs)
+  into a single person-centric graph. The FullContact V3 REST API exposes
+  Enrich, Resolve, Acumen, and Identity Streme products for enriching person
+  and company records, recognizing identities, and managing customer data.
+  Authentication is via Bearer API key sent in the Authorization header.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Identity Resolution
+  - Customer Data
+  - Data Enrichment
+  - Person API
+  - Company API
+  - Privacy-Safe Identity
+  - Customer Recognition
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/fullcontact/refs/heads/main/apis.yml
+created: '2026-05-11'
+modified: '2026-05-11'
+specificationVersion: '0.19'
+apis:
+  - aid: fullcontact:v3-api
+    name: FullContact V3 API
+    description: >-
+      REST API providing person enrichment, company enrichment, identity
+      resolution, mapping, and Acumen lead-details endpoints. Authentication
+      uses a Bearer API key passed in the Authorization header (e.g.
+      "Authorization: Bearer FC_API_KEY").
+    humanURL: https://docs.fullcontact.com
+    baseURL: https://api.fullcontact.com/v3
+    tags:
+      - Identity Resolution
+      - Person Enrichment
+      - Company Enrichment
+      - Customer Recognition
+      - Acumen
+    properties:
+      - type: Documentation
+        url: https://docs.fullcontact.com
+      - type: API Reference
+        url: https://api.fullcontact.com/v3/docs/methods/contacts.create
+      - type: Getting Started
+        url: https://docs.fullcontact.com/docs/getting-started
+      - type: Developer Portal
+        url: https://www.fullcontact.com/developer-portal/
+common:
+  - type: Website
+    url: https://www.fullcontact.com
+  - type: Documentation
+    url: https://docs.fullcontact.com
+  - type: Developer Portal
+    url: https://www.fullcontact.com/developer-portal/
+  - type: GitHub Organization
+    url: https://github.com/fullcontact
+  - type: Sign Up
+    url: https://platform.fullcontact.com/signup
+  - type: Pricing
+    url: https://www.fullcontact.com/pricing/
+  - type: Support
+    url: https://www.fullcontact.com/help/
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/fullcontact-inc-
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
