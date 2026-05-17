@@ -42,9 +42,9 @@ apis:
     properties:
       - type: Documentation
         url: https://docs.fullcontact.com
-      - type: API Reference
+      - type: APIReference
         url: https://api.fullcontact.com/v3/docs/methods/contacts.create
-      - type: Getting Started
+      - type: GettingStarted
         url: https://docs.fullcontact.com/docs/getting-started
       - type: Developer Portal
         url: https://www.fullcontact.com/developer-portal/
@@ -55,9 +55,9 @@ common:
     url: https://docs.fullcontact.com
   - type: Developer Portal
     url: https://www.fullcontact.com/developer-portal/
-  - type: GitHub Organization
+  - type: GitHubOrganization
     url: https://github.com/fullcontact
-  - type: Sign Up
+  - type: SignUp
     url: https://platform.fullcontact.com/signup
   - type: Pricing
     url: https://www.fullcontact.com/pricing/
