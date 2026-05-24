@@ -65,6 +65,8 @@ common:
     url: https://www.fullcontact.com/help/
   - type: LinkedIn
     url: https://www.linkedin.com/company/fullcontact-inc-
+  - type: LLMsTxt
+    url: https://docs.fullcontact.com/llms.txt
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
