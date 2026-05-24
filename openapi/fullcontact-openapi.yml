@@ -1,0 +1,229 @@
+openapi: 3.1.0
+info:
+  title: FullContact V3 API
+  version: "v3"
+  description: |
+    Best-effort OpenAPI 3.1 description of the FullContact V3 REST API for
+    person/company enrichment, identity resolution, permissions, tags, and
+    audience download. Generated from public documentation; not an official spec.
+  contact:
+    name: FullContact Developer Portal
+    url: https://docs.fullcontact.com
+servers:
+  - url: https://api.fullcontact.com
+    description: Production
+security:
+  - bearerAuth: []
+tags:
+  - name: Enrich
+  - name: Identity
+  - name: Permission
+  - name: Tags
+  - name: Audience
+  - name: Address
+paths:
+  /v3/person.enrich:
+    post:
+      tags: [Enrich]
+      operationId: enrichPerson
+      summary: Enrich a person record
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/Object" }
+      responses:
+        "200": { $ref: "#/components/responses/Ok" }
+  /v3/company.enrich:
+    post:
+      tags: [Enrich]
+      operationId: enrichCompany
+      summary: Enrich a company record
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/Object" }
+      responses:
+        "200": { $ref: "#/components/responses/Ok" }
+  /v3/company.search:
+    post:
+      tags: [Enrich]
+      operationId: searchCompany
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/Object" }
+      responses:
+        "200": { $ref: "#/components/responses/Ok" }
+  /v3/identity.map:
+    post:
+      tags: [Identity]
+      operationId: mapIdentity
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/Object" }
+      responses:
+        "200": { $ref: "#/components/responses/Ok" }
+  /v3/identity.resolve:
+    post:
+      tags: [Identity]
+      operationId: resolveIdentity
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/Object" }
+      responses:
+        "200": { $ref: "#/components/responses/Ok" }
+  /v3/identity.delete:
+    post:
+      tags: [Identity]
+      operationId: deleteIdentity
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/Object" }
+      responses:
+        "200": { $ref: "#/components/responses/Ok" }
+  /v3/permission.create:
+    post:
+      tags: [Permission]
+      operationId: createPermission
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/Object" }
+      responses:
+        "200": { $ref: "#/components/responses/Ok" }
+  /v3/permission.delete:
+    post:
+      tags: [Permission]
+      operationId: deletePermission
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/Object" }
+      responses:
+        "200": { $ref: "#/components/responses/Ok" }
+  /v3/permission.find:
+    post:
+      tags: [Permission]
+      operationId: findPermission
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/Object" }
+      responses:
+        "200": { $ref: "#/components/responses/Ok" }
+  /v3/permission.current:
+    post:
+      tags: [Permission]
+      operationId: currentPermission
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/Object" }
+      responses:
+        "200": { $ref: "#/components/responses/Ok" }
+  /v3/permission.verify:
+    post:
+      tags: [Permission]
+      operationId: verifyPermission
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/Object" }
+      responses:
+        "200": { $ref: "#/components/responses/Ok" }
+  /v3/tags.create:
+    post:
+      tags: [Tags]
+      operationId: createTags
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/Object" }
+      responses:
+        "200": { $ref: "#/components/responses/Ok" }
+  /v3/tags.get:
+    post:
+      tags: [Tags]
+      operationId: getTags
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/Object" }
+      responses:
+        "200": { $ref: "#/components/responses/Ok" }
+  /v3/tags.delete:
+    post:
+      tags: [Tags]
+      operationId: deleteTags
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/Object" }
+      responses:
+        "200": { $ref: "#/components/responses/Ok" }
+  /v3/audience.create:
+    post:
+      tags: [Audience]
+      operationId: createAudience
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/Object" }
+      responses:
+        "200": { $ref: "#/components/responses/Ok" }
+  /v3/audience.download:
+    post:
+      tags: [Audience]
+      operationId: downloadAudience
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/Object" }
+      responses:
+        "200": { $ref: "#/components/responses/Ok" }
+  /v3/address.normalize:
+    post:
+      tags: [Address]
+      operationId: normalizeAddress
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/Object" }
+      responses:
+        "200": { $ref: "#/components/responses/Ok" }
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: FullContact API key passed as a Bearer token in the Authorization header.
+  schemas:
+    Object:
+      type: object
+      additionalProperties: true
+  responses:
+    Ok:
+      description: Successful response
+      content:
+        application/json:
+          schema: { $ref: "#/components/schemas/Object" }
