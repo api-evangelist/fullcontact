@@ -9,7 +9,7 @@ description: >-
   and company records, recognizing identities, and managing customer data.
   Authentication is via Bearer API key sent in the Authorization header.
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - Identity Resolution
   - Customer Data
