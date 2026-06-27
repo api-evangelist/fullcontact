@@ -46,18 +46,18 @@ apis:
         url: https://api.fullcontact.com/v3/docs/methods/contacts.create
       - type: GettingStarted
         url: https://docs.fullcontact.com/docs/getting-started
-      - type: Developer Portal
+      - type: DeveloperPortal
         url: https://www.fullcontact.com/developer-portal/
 common:
   - type: Website
     url: https://www.fullcontact.com
   - type: Documentation
     url: https://docs.fullcontact.com
-  - type: Developer Portal
+  - type: DeveloperPortal
     url: https://www.fullcontact.com/developer-portal/
   - type: GitHubOrganization
     url: https://github.com/fullcontact
-  - type: SignUp
+  - type: Signup
     url: https://platform.fullcontact.com/signup
   - type: Pricing
     url: https://www.fullcontact.com/pricing/
@@ -65,7 +65,7 @@ common:
     url: https://www.fullcontact.com/help/
   - type: LinkedIn
     url: https://www.linkedin.com/company/fullcontact-inc-
-  - type: LLMsTxt
+  - type: LlmsText
     url: https://docs.fullcontact.com/llms.txt
 maintainers:
   - FN: Kin Lane
