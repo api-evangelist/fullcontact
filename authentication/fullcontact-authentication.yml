@@ -1,0 +1,13 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/fullcontact-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  description: FullContact API key passed as a Bearer token in the Authorization header.
+  sources:
+  - openapi/fullcontact-openapi.yml

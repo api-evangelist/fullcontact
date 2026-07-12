@@ -49,6 +49,12 @@ apis:
       - type: DeveloperPortal
         url: https://www.fullcontact.com/developer-portal/
 common:
+  - type: VulnerabilityDisclosure
+    url: security/fullcontact-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/fullcontact-domain-security.yml
+  - type: Authentication
+    url: authentication/fullcontact-authentication.yml
   - type: Website
     url: https://www.fullcontact.com
   - type: Documentation
@@ -67,6 +73,8 @@ common:
     url: https://www.linkedin.com/company/fullcontact-inc-
   - type: LlmsText
     url: https://docs.fullcontact.com/llms.txt
+  - type: Blog
+    url: https://www.fullcontact.com/blog/
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
