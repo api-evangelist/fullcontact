@@ -49,6 +49,8 @@ apis:
       - type: DeveloperPortal
         url: https://www.fullcontact.com/developer-portal/
 common:
+  - type: AgenticAccess
+    url: agentic-access/fullcontact-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/fullcontact-vulnerability-disclosure.yml
   - type: DomainSecurity
