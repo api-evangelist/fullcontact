@@ -1,0 +1,81 @@
+openapi: 3.1.0
+info:
+  title: FullContact V3 Address Identity API
+  version: v3
+  description: 'Best-effort OpenAPI 3.1 description of the FullContact V3 REST API for
+
+    person/company enrichment, identity resolution, permissions, tags, and
+
+    audience download. Generated from public documentation; not an official spec.
+
+    '
+  contact:
+    name: FullContact Developer Portal
+    url: https://docs.fullcontact.com
+servers:
+- url: https://api.fullcontact.com
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: Identity
+paths:
+  /v3/identity.map:
+    post:
+      tags:
+      - Identity
+      operationId: mapIdentity
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Object'
+      responses:
+        '200':
+          $ref: '#/components/responses/Ok'
+  /v3/identity.resolve:
+    post:
+      tags:
+      - Identity
+      operationId: resolveIdentity
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Object'
+      responses:
+        '200':
+          $ref: '#/components/responses/Ok'
+  /v3/identity.delete:
+    post:
+      tags:
+      - Identity
+      operationId: deleteIdentity
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Object'
+      responses:
+        '200':
+          $ref: '#/components/responses/Ok'
+components:
+  schemas:
+    Object:
+      type: object
+      additionalProperties: true
+  responses:
+    Ok:
+      description: Successful response
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Object'
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: FullContact API key passed as a Bearer token in the Authorization header.
