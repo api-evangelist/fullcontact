@@ -1,0 +1,24 @@
+{
+  "provider": "fullcontact",
+  "sources": [
+    "fullcontact-address-api-openapi.yml",
+    "fullcontact-audience-api-openapi.yml",
+    "fullcontact-enrich-api-openapi.yml",
+    "fullcontact-identity-api-openapi.yml",
+    "fullcontact-permission-api-openapi.yml",
+    "fullcontact-tags-api-openapi.yml"
+  ],
+  "outputs": [
+    "fullcontact-address-api-openapi.yml",
+    "fullcontact-audience-api-openapi.yml",
+    "fullcontact-enrich-api-openapi.yml",
+    "fullcontact-identity-api-openapi.yml",
+    "fullcontact-permission-api-openapi.yml",
+    "fullcontact-tags-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
