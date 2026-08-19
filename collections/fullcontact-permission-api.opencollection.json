@@ -1,0 +1,94 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FullContact V3 Address Permission API",
+    "version": "v3"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Permission",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "createPermission",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.fullcontact.com/v3/permission.create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "deletePermission",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.fullcontact.com/v3/permission.delete",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "findPermission",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.fullcontact.com/v3/permission.find",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "currentPermission",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.fullcontact.com/v3/permission.current",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "verifyPermission",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.fullcontact.com/v3/permission.verify",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

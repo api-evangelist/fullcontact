@@ -1,0 +1,77 @@
+# FullContact Documentation
+
+> FullContact's Product and API Documentation
+
+## Guides
+- [Introduction to FullContact™](https://docs.fullcontact.com/docs/getting-started.md): You'll be up and running in a jiffy!
+- [Match Test via FullContact Platform](https://docs.fullcontact.com/docs/run-a-match-test-1.md)
+- [Obtain Enrichment Data](https://docs.fullcontact.com/docs/run-a-enrichment-test.md)
+- [Generate an API Key](https://docs.fullcontact.com/docs/generate-an-api-key.md)
+- [Configure the FullContact webtag](https://docs.fullcontact.com/docs/configure-fullcontact-webtag.md)
+- [Webtag Installation Instructions](https://docs.fullcontact.com/docs/webtag-installation-instructions.md)
+- [Snowflake External Functions - Resolve & Enrich](https://docs.fullcontact.com/docs/snowflake-fullcontact-external-functions.md)
+- [End-to-End Integration Guides](https://docs.fullcontact.com/docs/end-to-end-guides.md)
+- [Google Analytics](https://docs.fullcontact.com/docs/google-analytics.md)
+- [Simon Data](https://docs.fullcontact.com/docs/simon-data.md)
+- [Wordpress](https://docs.fullcontact.com/docs/wordpress-installation.md)
+- [Wix](https://docs.fullcontact.com/docs/wix-installation.md)
+- [Framer](https://docs.fullcontact.com/docs/framer-installation.md)
+- [Webflow](https://docs.fullcontact.com/docs/webflow-installation.md)
+- [GoDaddy Website Builder](https://docs.fullcontact.com/docs/godaddy-website-builder.md)
+- [ MCP Server Overview](https://docs.fullcontact.com/docs/mcp-server-overview.md)
+- [Quickstart](https://docs.fullcontact.com/docs/quickstart.md)
+- [Authentication](https://docs.fullcontact.com/docs/authentication.md)
+- [Tool Reference: enrich_person](https://docs.fullcontact.com/docs/tool-reference-enrich_person.md)
+- [Errors and FAQ](https://docs.fullcontact.com/docs/errors-and-faq.md)
+- [Customer Recognition Overview](https://docs.fullcontact.com/docs/customer-recognition-overview.md): The vital step in creating a cohesive customer journey is to recognize the person. From the moment they start interacting, deliver appropriate messaging and content during every engagement.
+- [Customer Recognition Acceptable Use Policies](https://docs.fullcontact.com/docs/customer-rec-aup.md)
+- [Quality Filtering](https://docs.fullcontact.com/docs/quality-filtering-toggle.md)
+- [FullContact Consent Management Feature](https://docs.fullcontact.com/docs/fullcontact-consent-management-feature.md)
+- [FullContact Webtag ID Service](https://docs.fullcontact.com/docs/fullcontact-webtag-id-service.md)
+- [Acumen Overview](https://docs.fullcontact.com/docs/acumen-overview.md)
+- [FAQs](https://docs.fullcontact.com/docs/faqs.md)
+- [Getting Started with Enrich](https://docs.fullcontact.com/docs/getting-started-with-enrich-1.md)
+- [Person Insights Bundles](https://docs.fullcontact.com/docs/person-insights-bundles.md)
+- [Core Segmentation](https://docs.fullcontact.com/docs/core-segmentation.md): The Core Segmentation Bundle provides you with core demographic data about your customers and prospects. These 16+ most used data elements allow you to segment your customers and prospects to quickly create actionable audiences for targeting, personalization and insights.
+- [Core Professional](https://docs.fullcontact.com/docs/core-professional.md): The Core Professional Insights Bundle returns current professional contact details. This data will include the current place of employment, professional email address, business phone and additional details associated with the profile. This Insights Bundle will be returned in the employment, location, profiles, gender, emails and phones keys in the details portion of a Person Summary object.
+- [Interests](https://docs.fullcontact.com/docs/interests.md)
+- [Individual](https://docs.fullcontact.com/docs/individual.md): The Individual Insights Bundle contains a range of information for a profile, including `age`,`gender` and `name` details, along with any known locations for the profile. This Insights Bundle will be returned in the `name`, `age`, `gender`, `locations` and `education` keys in the details object represents a Person Summary.
+- [Individual Plus Insights](https://docs.fullcontact.com/docs/individual-plus-insights.md): The **Individual Plus** Insights Bundle contains the entire suite of information for a profile, including `age` `gender`,`known locations`,`household composition`,`financial characteristics`,`purchase` and `shopping habits`,along with known hashed emails for the profile. This Insights Bundles will be returned in the `demographics`,`locations`,`households`,`finances`,`triggers`,`market trends`,`purchases`,`education` and `email hash` and keys in the `details` object represents a Person Summary.
+- [Demographic Insights](https://docs.fullcontact.com/docs/copy-of-person-insights-bundles.md): The **Demographic** Insights Bundle contains a range of information for a profile, including `age`,`gender`, `name`,`location` and `income estimate` details. This insights bundles returns the `name`,`age`,`gender`, `household`,`finance`,`census`,`profiles`,`locations`,`employment`,`photos`,`education`, and `demographics` , and keys in the `details` object represents a Person Summary.
+- [Professional](https://docs.fullcontact.com/docs/professional.md): The Professional Insights Bundle returns current professional contact details. This data will include the company address for the current place of employment, professional email address, business phone and additional industry details associated to the profile. This Insights Bundle will be returned in the `employment`, `emails` and `phones` keys in the `details` portion of a Person Summary object.
+- [Consumer Email](https://docs.fullcontact.com/docs/consumer-email.md): The Consumer Email Bundle provides you with the name and best personal email address for targeting your customers and prospects.  The data for this bundle will be returned in the `name` and `emails` keys in the `details` portion of a Person Summary object.
+- [Employment History](https://docs.fullcontact.com/docs/employment-history.md): The Employment History Insights Bundle returns current and historical employment history for a given contact. This data includes the organization and title during employment and approximate start and end dates. This Insights Bundle will be returned within the  `employment` key in the `details` object of a Person Summary object.
+- [Premium Phone](https://docs.fullcontact.com/docs/premium-phone.md): The Premium Phone Bundle provides you with the name and best personal phone numbers for your customers and prospects.  The data for this bundle will be returned in the `name` and `phones` keys in the `details` portion of a Person Summary object.
+- [Email Hash Activity](https://docs.fullcontact.com/docs/email-hash-activity.md): The Email Hash Activity Insights Add-On will return additional insights for the hashed versions of known email addresses associated with the profile including first seen and last seen timestamps along with an associated activity score of `HIGH`, `MEDIUM` or `LOW`. The returned hashed email addresses and associated insights can then be used as identity verification and fraud signals or for enhanced marketing activation efforts. The max number of hashed email addresses that can be returned are 20.  This Insights will be returned within the `emails` key in the `details` object of a Person Summary object.
+- [Email Hashes](https://docs.fullcontact.com/docs/email-hashes.md): The Hashed Email Insights Bundle will return hashed versions of known email addresses associated with the profile. The returned hashed email addresses, available in both MD5, SHA-1 and SHA-256 variations, can then be used to help link our profiles with your data. The max number of hashed email addresses that can be returned are 20. The hashes represent normalized versions of the plain-text email, both all-lowercase and all-uppercase types of normalization.  Each email, we can designate it as `work`, `consumer`, `education`, `government`, or `other`. This Insights Bundle will be returned within the `emails` key in the `details` object of a Person Summary object.  Should you wish to specify the hashed email variation that is returned you can use FullContact's [Hashed Email Type Filter](https://docs.fullcontact.com/docs/request-properties#hashed-email-type-filter) to specify MD5, SHA1 or SHA256.
+- [Email Risk](https://docs.fullcontact.com/docs/email-risk.md): The Email Risk Enrichment Bundle provides comprehensive intelligence on email address quality, helping you identify potential deliverability issues before they impact your email deliverability. With detailed risk indicators for each email address, you can confidently clean your lists and optimize your email performance. Output is associated to the single email input provided.
+- [Mobile Advertising IDs (MAIDs)](https://docs.fullcontact.com/docs/mobile-advertising-ids-maids.md): The Mobile Advertising IDs (MAIDs) Insights Bundle allows you to connect your customers’ online/mobile contact elements and combines them with offline identity information. In the response, you can receive up to the 5 most recent MAIDs. This Insights Bundle will be returned in the `identifiers` key in the `details` object of the Person Summary object.  Should you wish to increase or decrease the number of MAIDs you receive back on an individual you can leverage FullContact's [Maximum Number of MAIDs](https://docs.fullcontact.com/docs/request-properties#maximum-number-of-maids) request parameter and add it to any/all of your API requests.
+- [Premium Address](https://docs.fullcontact.com/docs/premium-address.md): The Premium Address Insights Bundle returns the name and full address, include street address and zip code for an individual.  The data for this bundle will be returned in the `name` and `locations` keys in the `details` portion of a Person Summary object.
+- [Resolve](https://docs.fullcontact.com/docs/resolve.md)
+- [Social](https://docs.fullcontact.com/docs/social.md)
+- [Vertical Bundles](https://docs.fullcontact.com/docs/vertical-bundles-1.md)
+- [Multi Field Request](https://docs.fullcontact.com/docs/multi-field-request.md)
+- [Legacy V2 Person Migration](https://docs.fullcontact.com/docs/migrating-from-legacy-v2.md)
+- [V2 Company Search by Name Migration](https://docs.fullcontact.com/docs/v2-company-company-search-by-name-migration.md)
+- [V2 Company Domain Lookup Migration](https://docs.fullcontact.com/docs/v2-company-domain-lookup-migration.md)
+- [Getting Started with Identity Streme](https://docs.fullcontact.com/docs/getting-started-with-identity-streme.md)
+- [Multi Field Request](https://docs.fullcontact.com/docs/multi-field-request-2.md)
+- [Getting Started with Resolve](https://docs.fullcontact.com/docs/getting-started-with-resolve.md)
+- [Multi Field Request](https://docs.fullcontact.com/docs/multi-field-request-1.md)
+- [Address Normalization API](https://docs.fullcontact.com/docs/address-normalization-api.md)
+
+## Recipes
+- [Load CSV to Identity Streme](https://docs.fullcontact.com/recipes/load-csv-to-identity-streme.md)
+- [Tealium + FullContact Customer Recognition](https://docs.fullcontact.com/recipes/tealium-fullcontact-customer-recognition.md)
+
+## Changelog
+- [Key People, v2 Company APIs & v3 Company Name Lookup Deprecated](https://docs.fullcontact.com/changelog/key-people-v2-company-apis-v3-company-name-lookup-deprecated.md)
+- [Email Hash Activity](https://docs.fullcontact.com/changelog/email-hash-activity.md)
+- [Adding generatePID](https://docs.fullcontact.com/changelog/adding-generatepid.md)
+- [New Endpoint for Map + Resolve](https://docs.fullcontact.com/changelog/new-endpoint-for-map-resolve.md)
+- [Improve Person ID (PID) Selection](https://docs.fullcontact.com/changelog/improve-person-id-pid-selection.md)
+- [MAID Amplification Improvements](https://docs.fullcontact.com/changelog/maid-amplification-improvements.md)
+- [Enhancing and Standardizing our Identity Streme Capabilities](https://docs.fullcontact.com/changelog/enhancing-and-standardizing-our-private-graph-pic-capabilities.md)
+- [Client Library Updates](https://docs.fullcontact.com/changelog/client-library-updates.md)
+- [Improvements to Match Test](https://docs.fullcontact.com/changelog/improvements-to-match-test.md)
+- [Enhancements to Customer Recognition Webtag and Analytics page](https://docs.fullcontact.com/changelog/enhancements-to-customer-recognition-webtag-and-analytics-page.md)

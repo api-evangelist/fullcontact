@@ -1,0 +1,80 @@
+generated: '2026-08-14'
+method: searched
+source: https://docs.fullcontact.com/docs/rate-limiting
+description: >-
+  FullContact publishes both its default ceiling and the exact response headers
+  it returns, which is the part an agent needs. The signalling is unusual:
+  rather than reject immediately, FullContact DELAYS a request up to 1000ms to
+  keep it inside the configured limit and reports the delay it applied in
+  X-FullContact-RateDelay. A 429 is only returned when the required delay would
+  exceed 1000ms, and that 429 is itself delayed by the maximum latency so the
+  caller can retry immediately and safely.
+
+limit_count: 1
+
+limits:
+  - scope: per-account (API key)
+    window: 60s
+    limit: 6000
+    unit: requests per minute
+    burst: null
+    note: >-
+      "Our default rate limit is 6,000 QPM but should you need a higher rate
+      limit contact our Sales team to get you setup." Rate limits exist
+      independently of the key's monthly usage allowance.
+    upgrade: https://www.fullcontact.com/contact-us/
+
+headers:
+  - name: X-FullContact-RateDelay
+    meaning: >-
+      Milliseconds of latency FullContact added to this request in order to
+      keep it inside the configured rate limit.
+    example: '5'
+    authoritative: true
+  - name: X-Rate-Limit
+    meaning: Static rate limit ceiling. Legacy header retained for backwards compatibility on older client libraries.
+    example: '600'
+    authoritative: false
+  - name: X-Rate-Limit-Remaining
+    meaning: Static number of requests left in the 60-second window. Legacy, static value.
+    example: '10'
+    authoritative: false
+  - name: X-Rate-Limit-Reset
+    meaning: Static number of UTC epoch seconds remaining until the 60-second window resets. Legacy, static value.
+    example: '20'
+    authoritative: false
+  - name: Retry-After
+    meaning: Returned with 503 Service Unavailable, dictating when to attempt the call again.
+    source: https://docs.fullcontact.com/docs/response-codes-errors
+
+exhaustion:
+  status: 429
+  name: Too Many Requests
+  condition: >-
+    Returned only when the delay required to stay within the limit would exceed
+    1000ms.
+  retry_guidance: >-
+    The 429 response is itself delayed by the maximum possible rate-limiting
+    latency, so the request can be retried immediately and safely.
+
+related_status_codes:
+  - status: 403
+    note: >-
+      "Your API key is invalid, missing, or has exceeded its quota. Plans that
+      have overages enabled will not receive a 403 when they exceed their
+      allotted matches — they will only receive a 403 for exceeding rate limit
+      quotas."
+    source: https://docs.fullcontact.com/docs/response-codes-errors
+
+mcp:
+  note: >-
+    The hosted MCP server enforces the same account limits. A successful
+    fullcontact_enrich_person invocation counts as one person.enrich call. On
+    exhaustion it returns a normalized envelope with code rate_limit_exceeded
+    and a retry_after_seconds field.
+  source: https://docs.fullcontact.com/docs/authentication
+
+x-evidence:
+  - fetched: '2026-08-14'
+    url: https://docs.fullcontact.com/docs/rate-limiting.md
+    http_status: 200

@@ -1,0 +1,70 @@
+generated: '2026-08-14'
+method: searched
+source: >-
+  https://docs.fullcontact.com/changelog, https://status.fullcontact.com/,
+  https://docs.fullcontact.com/docs/response-codes-errors
+description: >-
+  Versioning, deprecation and operational posture for the FullContact V3 API.
+  FullContact versions in the URI path, runs a public Statuspage, and announces
+  retirements through its docs changelog. What it does NOT publish is a written
+  deprecation policy with a notice window, or RFC 8594 Sunset/Deprecation
+  headers — retirement is communicated in prose and enforced with 410 Gone.
+
+versioning:
+  scheme: uri-path
+  current: v3
+  path_prefix: /v3
+  docs: https://docs.fullcontact.com
+  note: >-
+    V1 is retired and returns 410 Gone. V2 person and company endpoints are
+    superseded by V3, with published migration guides.
+
+deprecation:
+  policy_url: null
+  policy_published: false
+  sunset_header: false
+  deprecation_header: false
+  announcement_channel: https://docs.fullcontact.com/changelog
+  enforcement:
+    status: 410
+    detail: >-
+      "This resource cannot be found. You will receive this status code if you
+      attempt to query our deprecated V1 endpoints."
+    source: https://docs.fullcontact.com/docs/response-codes-errors
+  announced_retirements:
+    - name: Key People, v2 Company APIs & v3 Company Name Lookup
+      url: https://docs.fullcontact.com/changelog/key-people-v2-company-apis-v3-company-name-lookup-deprecated
+      note: Most recent deprecation announcement in the docs changelog.
+  migration_guides:
+    - title: Legacy V2 Person Migration
+      url: https://docs.fullcontact.com/docs/migrating-from-legacy-v2
+    - title: V2 Company Search by Name Migration
+      url: https://docs.fullcontact.com/docs/v2-company-company-search-by-name-migration
+    - title: V2 Company Domain Lookup Migration
+      url: https://docs.fullcontact.com/docs/v2-company-domain-lookup-migration
+
+status_page: https://status.fullcontact.com/
+status_page_platform: Atlassian Statuspage
+
+sla:
+  url: null
+  uptime_target: null
+  note: >-
+    No public SLA or uptime commitment was found. FullContact's commercial
+    terms are sales-gated (see plans/fullcontact-plans-pricing.yml), so an SLA
+    is presumed contractual rather than published.
+
+changelog: changelog/fullcontact-changelog.yml
+
+deprecated_operations: []
+
+x-evidence:
+  - fetched: '2026-08-14'
+    url: https://status.fullcontact.com
+    http_status: 200
+  - fetched: '2026-08-14'
+    url: https://docs.fullcontact.com/changelog
+    http_status: 200
+  - fetched: '2026-08-14'
+    url: https://docs.fullcontact.com/docs/response-codes-errors.md
+    http_status: 200

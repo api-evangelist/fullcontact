@@ -1,0 +1,77 @@
+generated: '2026-08-14'
+method: searched
+source: >-
+  https://docs.fullcontact.com/docs/authentication,
+  https://docs.fullcontact.com/docs/run-a-match-test-1,
+  https://docs.fullcontact.com/docs/run-a-enrichment-test,
+  https://docs.fullcontact.com/docs/webhooks
+description: >-
+  What FullContact publishes for testing before you go to production. There is
+  no simulated environment with fixture data: FullContact separates test from
+  live at the KEY level (sandbox keys, explicitly for evaluation only) and
+  provides hosted test tools inside the platform that run real queries against
+  the real graph. There are no magic identifiers, no deterministic test
+  records, and no way to force a specific response — an identity graph has no
+  meaningful equivalent of a test card number.
+
+test_live_separation:
+  supported: true
+  mechanism: key type
+  detail: >-
+    "Be a production key for production traffic; sandbox keys are accepted for
+    evaluation only." Sandbox keys are issued for evaluation and are not
+    intended to carry production traffic.
+  source: https://docs.fullcontact.com/docs/authentication
+  key_provisioning: https://docs.fullcontact.com/docs/generate-an-api-key
+  key_prefixes_published: false
+
+hosted_test_tools:
+  - name: Match Test
+    where: FullContact Platform (platform.fullcontact.com)
+    description: >-
+      Upload a sample of your records and see what portion FullContact can
+      recognize against the identity graph, before wiring the API.
+    docs: https://docs.fullcontact.com/docs/run-a-match-test-1
+  - name: Enrichment Test
+    where: FullContact Platform
+    description: >-
+      Run a sample enrichment to see the shape and fill rate of the data you
+      would receive.
+    docs: https://docs.fullcontact.com/docs/run-a-enrichment-test
+
+webhook_testing:
+  documented: true
+  guidance: >-
+    FullContact's reference approach is to intercept the webhook POST locally
+    with ngrok plus netcat, or to use a web-based webhook testing service. The
+    docs include a working ngrok + nc listener snippet and the 202 response the
+    API returns when a webhookUrl is supplied.
+  source: https://docs.fullcontact.com/docs/webhooks
+
+magic_test_values:
+  published: false
+  note: >-
+    No test emails, test phone numbers, test PIDs or forced-outcome identifiers
+    are published. The example identifiers that appear throughout the docs
+    (bart@fullcontact.com, +13035551234) are illustrative documentation values,
+    not guaranteed fixtures, and are deliberately NOT recorded here as test
+    data.
+
+not_published:
+  - simulated/sandbox API host
+  - deterministic fixture records
+  - forced error / decline simulation
+  - test clocks or time simulation
+  - published sandbox key prefixes
+
+x-evidence:
+  - fetched: '2026-08-14'
+    url: https://docs.fullcontact.com/docs/authentication.md
+    http_status: 200
+  - fetched: '2026-08-14'
+    url: https://docs.fullcontact.com/docs/webhooks.md
+    http_status: 200
+  - fetched: '2026-08-14'
+    url: https://docs.fullcontact.com/llms.txt
+    http_status: 200
+    note: Indexes "Match Test via FullContact Platform" and "Obtain Enrichment Data".

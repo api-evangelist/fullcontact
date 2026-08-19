@@ -1,0 +1,61 @@
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "tools": [
+      {
+        "name": "fullcontact_enrich_person",
+        "description": "Enriches person data using email, phone, social profiles, or name+location. Returns demographic, employment, and social profile information from FullContact.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "email": {
+              "type": "string",
+              "description": "Email address or MD5/SHA1/SHA256 hash of email"
+            },
+            "phone": {
+              "type": "string",
+              "description": "Phone number in E.164 format (e.g. +13035551234)"
+            },
+            "twitter": {
+              "type": "string",
+              "description": "Twitter username (with or without @) or profile URL"
+            },
+            "linkedin": {
+              "type": "string",
+              "description": "LinkedIn profile URL"
+            },
+            "name": {
+              "type": "string",
+              "description": "Full name. Required when using location. Also improves results when combined with email, phone, or social."
+            },
+            "location": {
+              "type": "object",
+              "description": "Location/address. Must be combined with name.",
+              "properties": {
+                "addressLine1": {
+                  "type": "string"
+                },
+                "city": {
+                  "type": "string"
+                },
+                "region": {
+                  "type": "string"
+                },
+                "regionCode": {
+                  "type": "string"
+                },
+                "postalCode": {
+                  "type": "string"
+                },
+                "country": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for FullContact V3 Address Tags API
+  version: 1.0.0
+extends: openapi/fullcontact-tags-api-openapi.yml
+x-generated: '2026-08-14'
+x-method: generated
+x-source: apis.yml + the artifacts in this repo; no provider-published OpenAPI exists to overlay.
+actions:
+- target: $.info
+  update:
+    contact:
+      name: FullContact Support
+      email: support@fullcontact.com
+      url: https://support.fullcontact.com/portal/en/home
+    termsOfService: https://www.fullcontact.com/privacy/terms-of-use/
+    x-apievangelist-provenance: API Evangelist best-effort description; FullContact publishes no OpenAPI.
+    x-apievangelist-artifacts:
+      authentication: authentication/fullcontact-authentication.yml
+      conventions: conventions/fullcontact-conventions.yml
+      errors: errors/fullcontact-problem-types.yml
+      rate_limits: rate-limits/fullcontact-rate-limits.yml
+      lifecycle: lifecycle/fullcontact-lifecycle.yml
+- target: $
+  update:
+    externalDocs:
+      description: FullContact Documentation
+      url: https://docs.fullcontact.com
+- target: $.components.securitySchemes.bearerAuth
+  update:
+    bearerFormat: FullContact API key
+    x-key-provisioning: https://docs.fullcontact.com/docs/generate-an-api-key

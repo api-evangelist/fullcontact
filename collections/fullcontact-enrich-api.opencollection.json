@@ -1,0 +1,68 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FullContact V3 Address Enrich API",
+    "version": "v3"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Enrich",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Enrich a person record",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.fullcontact.com/v3/person.enrich",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Enrich a person record"
+        },
+        {
+          "info": {
+            "name": "Enrich a company record",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.fullcontact.com/v3/company.enrich",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Enrich a company record"
+        },
+        {
+          "info": {
+            "name": "searchCompany",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.fullcontact.com/v3/company.search",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

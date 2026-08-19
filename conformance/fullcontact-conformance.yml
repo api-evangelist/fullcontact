@@ -1,0 +1,116 @@
+generated: '2026-08-14'
+method: searched
+source: >-
+  FullContact documentation (docs.fullcontact.com), the live API host, and
+  https://trust.fullcontact.com/
+description: >-
+  Which cross-cutting standards the FullContact V3 API actually conforms to,
+  each with the evidence it was judged on. The honest summary: FullContact is
+  standards-light on the wire (bearer key, custom JSON error envelope, no
+  OAuth, no OpenAPI) and standards-forward on privacy (IAB TCF v2.0 purposes,
+  CCPA/GDPR handling) and on the agent surface (Model Context Protocol).
+
+standards:
+  - id: http-bearer-auth
+    conforms: true
+    evidence: >-
+      RFC 6750 style Authorization: Bearer <api key> on every request, including
+      the MCP endpoint. See authentication/fullcontact-authentication.yml.
+
+  - id: oauth2
+    conforms: false
+    evidence: >-
+      No OAuth flows are documented anywhere. The MCP authentication page states
+      explicitly "There is no separate MCP credential, no OAuth flow."
+
+  - id: oidc
+    conforms: false
+    evidence: /.well-known/openid-configuration returned 404 on all three hosts.
+
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: >-
+      Errors use a bare {"status":<int>,"message":"<string>"} JSON body with
+      content-type application/json, not application/problem+json.
+
+  - id: rfc9116-security-txt
+    conforms: false
+    evidence: >-
+      /.well-known/security.txt returned 404 on api., www. and docs.
+      fullcontact.com. A disclosure program exists as an HTML page instead.
+
+  - id: rfc8594-sunset-header
+    conforms: false
+    evidence: >-
+      No Sunset or Deprecation headers documented; retirement is announced in
+      the changelog and enforced with 410 Gone.
+
+  - id: openapi
+    conforms: false
+    evidence: >-
+      No OpenAPI/Swagger document is published. /openapi.json, /openapi.yaml,
+      /swagger.json, /api-docs and /v3/openapi.json all 404 on the API host, and
+      the docs host serves no spec. The specs in openapi/ are API Evangelist
+      best-effort descriptions and say so in info.description.
+
+  - id: asyncapi
+    conforms: false
+    evidence: >-
+      No AsyncAPI document. A request-scoped webhookUrl callback surface is
+      documented instead — see asyncapi/fullcontact-webhooks.yml.
+
+  - id: mcp
+    conforms: true
+    evidence: >-
+      First-party hosted MCP server at https://api.fullcontact.com/v3/mcp.
+      An anonymous JSON-RPC tools/list returned 200 with a conformant tool
+      descriptor (name, description, JSON Schema inputSchema) on 2026-08-14.
+
+  - id: a2a
+    conforms: false
+    evidence: >-
+      /.well-known/agent-card.json and /.well-known/agent.json returned 404 on
+      all three hosts.
+
+  - id: iab-tcf-v2
+    conforms: true
+    evidence: >-
+      The Permission surface uses IAB TCF v2.0 purpose ids; FullContact
+      publishes the purposes model at
+      https://static-assets.fullcontact.com/docs/Purposes+Model+-+TCF+v2.0+Purposes.pdf
+
+  - id: gdpr
+    conforms: true
+    evidence: >-
+      https://www.fullcontact.com/security/ documents GDPR and CCPA subject
+      request handling and "Do Not Sell My Personal Information".
+
+  - id: ccpa
+    conforms: true
+    evidence: https://www.fullcontact.com/security/
+
+  - id: soc2
+    conforms: true
+    evidence: >-
+      "The hosted MCP Server runs inside FullContact's existing SOC 2 boundary."
+      — https://docs.fullcontact.com/docs/authentication. A Vanta-hosted Trust
+      Center is live at https://trust.fullcontact.com/ (200); its certification
+      list is rendered client-side and was not machine-readable at probe time.
+      See security/fullcontact-trust-center.yml.
+
+  - id: tls
+    conforms: true
+    evidence: >-
+      TLS 1.2 on api.fullcontact.com, TLS 1.3 with HSTS (max-age 31536000) on
+      www. and docs. — see security/fullcontact-domain-security.yml.
+
+x-evidence:
+  - fetched: '2026-08-14'
+    url: https://api.fullcontact.com/v3/mcp
+    http_status: 200
+  - fetched: '2026-08-14'
+    url: https://trust.fullcontact.com/
+    http_status: 200
+  - fetched: '2026-08-14'
+    url: https://api.fullcontact.com/openapi.json
+    http_status: 404

@@ -1,0 +1,79 @@
+generated: '2026-08-14'
+method: searched
+source: https://docs.fullcontact.com/changelog
+description: >-
+  FullContact maintains a dated changelog inside its ReadMe-hosted docs. The ten
+  most recent entries are listed below, harvested from the docs index at
+  https://docs.fullcontact.com/llms.txt (newest first, in the order the index
+  publishes them). Per-entry publication dates are rendered client-side on the
+  changelog page and the individual entry pages sit behind a Cloudflare bot
+  challenge, so dates are recorded as null rather than guessed.
+scheme: dated entries, no release numbers
+current_version: v3
+changelog_url: https://docs.fullcontact.com/changelog
+
+entries:
+  - title: Key People, v2 Company APIs & v3 Company Name Lookup Deprecated
+    url: https://docs.fullcontact.com/changelog/key-people-v2-company-apis-v3-company-name-lookup-deprecated
+    date: null
+    breaking: true
+    kind: deprecation
+  - title: Email Hash Activity
+    url: https://docs.fullcontact.com/changelog/email-hash-activity
+    date: null
+    breaking: false
+    kind: addition
+    note: New Insights Add-On returning first/last seen and an activity score per hashed email.
+  - title: Adding generatePID
+    url: https://docs.fullcontact.com/changelog/adding-generatepid
+    date: null
+    breaking: false
+    kind: addition
+  - title: New Endpoint for Map + Resolve
+    url: https://docs.fullcontact.com/changelog/new-endpoint-for-map-resolve
+    date: null
+    breaking: false
+    kind: addition
+  - title: Improve Person ID (PID) Selection
+    url: https://docs.fullcontact.com/changelog/improve-person-id-pid-selection
+    date: null
+    breaking: false
+    kind: improvement
+  - title: MAID Amplification Improvements
+    url: https://docs.fullcontact.com/changelog/maid-amplification-improvements
+    date: null
+    breaking: false
+    kind: improvement
+  - title: Enhancing and Standardizing our Identity Streme Capabilities
+    url: https://docs.fullcontact.com/changelog/enhancing-and-standardizing-our-private-graph-pic-capabilities
+    date: null
+    breaking: false
+    kind: improvement
+  - title: Client Library Updates
+    url: https://docs.fullcontact.com/changelog/client-library-updates
+    date: null
+    breaking: false
+    kind: sdk
+  - title: Improvements to Match Test
+    url: https://docs.fullcontact.com/changelog/improvements-to-match-test
+    date: null
+    breaking: false
+    kind: improvement
+  - title: Enhancements to Customer Recognition Webtag and Analytics page
+    url: https://docs.fullcontact.com/changelog/enhancements-to-customer-recognition-webtag-and-analytics-page
+    date: null
+    breaking: false
+    kind: improvement
+
+x-evidence:
+  - fetched: '2026-08-14'
+    url: https://docs.fullcontact.com/changelog
+    http_status: 200
+  - fetched: '2026-08-14'
+    url: https://docs.fullcontact.com/llms.txt
+    http_status: 200
+    note: Carries the full "## Changelog" index used to enumerate the entries above.
+  - fetched: '2026-08-14'
+    url: https://docs.fullcontact.com/changelog/key-people-v2-company-apis-v3-company-name-lookup-deprecated.md
+    http_status: 429
+    note: Cloudflare "Hello there, human!" managed challenge — per-entry dates not retrievable.

@@ -1,0 +1,49 @@
+generated: '2026-08-14'
+method: searched
+probe: true
+source: https://trust.fullcontact.com/
+description: >-
+  FullContact runs a Vanta-hosted Trust Center at trust.fullcontact.com. The
+  page returns 200 but is a client-side rendered single-page app, so its
+  certification list is not machine-readable from the served HTML. The one
+  certification FullContact names in plain text in its own documentation is
+  SOC 2, and that is the only one recorded here.
+url: https://trust.fullcontact.com/
+platform: Vanta
+
+certifications:
+  - SOC 2
+
+certifications_note: >-
+  SOC 2 is recorded on the strength of FullContact's own documentation, not on
+  the Trust Center HTML. No ISO 27001, PCI DSS, HIPAA or FedRAMP claim was
+  found in any machine-readable source; their absence here means "not
+  observed", not "not held" — the Trust Center may list more behind its
+  JavaScript.
+
+privacy_program:
+  page: https://www.fullcontact.com/security/
+  claims:
+    - CCPA subject access and deletion requests
+    - GDPR subject access and deletion requests
+    - '"Do Not Sell My Personal Information" handling'
+    - Contact data stored using 256-bit AES encryption at rest
+    - TLS configured with industry best practices
+
+evidence:
+  - source: https://trust.fullcontact.com/
+    status: 200
+    keywords: [trust center]
+    note: Vanta trust-report SPA; content loads from assets.vanta.com at runtime.
+  - source: https://docs.fullcontact.com/docs/authentication
+    status: 200
+    quote: '"SOC 2. The hosted MCP Server runs inside FullContact''s existing SOC 2 boundary."'
+  - source: https://www.fullcontact.com/security/
+    status: 200
+    keywords: [GDPR, CCPA, encryption at rest, TLS]
+
+x-evidence:
+  fetched: '2026-08-14'
+  url: https://trust.fullcontact.com/
+  http_status: 200
+  content_type: text/html

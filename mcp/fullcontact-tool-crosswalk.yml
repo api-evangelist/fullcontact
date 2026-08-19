@@ -1,0 +1,84 @@
+generated: '2026-08-14'
+method: derived
+source: >-
+  mcp/fullcontact-mcp-tools.json (live anonymous tools/list on
+  https://api.fullcontact.com/v3/mcp) bound to the operations in openapi/.
+description: >-
+  Binds each FullContact MCP tool to the REST operation that backs it, so the
+  tool's real input contract is the operation's request body rather than a
+  guess. FullContact's MCP surface is deliberately a strict subset of REST: one
+  tool, one operation. Everything else the V3 API exposes is REST-only today.
+
+surfaces:
+  openapi:
+    files:
+      - openapi/fullcontact-enrich-api-openapi.yml
+      - openapi/fullcontact-identity-api-openapi.yml
+      - openapi/fullcontact-permission-api-openapi.yml
+      - openapi/fullcontact-tags-api-openapi.yml
+      - openapi/fullcontact-audience-api-openapi.yml
+      - openapi/fullcontact-address-api-openapi.yml
+    note: >-
+      FullContact publishes no OpenAPI of its own. These are API Evangelist
+      best-effort descriptions written from the public documentation and are
+      labelled as such in info.description — operationIds are ours, the paths
+      and methods are FullContact's.
+  graphql:
+    endpoint: null
+    note: FullContact publishes no GraphQL surface.
+  mcp:
+    url: https://api.fullcontact.com/v3/mcp
+    gated: false
+    note: tools/list answered 200 anonymously on 2026-08-14; inputSchema captured verbatim.
+
+crosswalk:
+  - tool: fullcontact_enrich_person
+    category: enrichment
+    rest: [enrichPerson]
+    path: POST /v3/person.enrich
+    binding: rest
+    confidence: high
+    note: >-
+      FullContact states plainly that the tool "is a thin wrapper over POST
+      /v3/person.enrich" and that "anything documented for that endpoint —
+      input combinations, hashed identifier behavior, Insight Bundles — applies
+      here unchanged." The tool's live inputSchema (email, phone, twitter,
+      linkedin, name, location) is a flattened subset of the Multi Field
+      Request body.
+
+mcp_only: []
+
+rest_only:
+  - capability: company enrichment
+    operations: [enrichCompany, searchCompany]
+    reason: >-
+      No MCP tool. FullContact documents company enrichment as a future MCP
+      release.
+  - capability: identity resolution
+    operations: [mapIdentity, resolveIdentity, deleteIdentity]
+    reason: No MCP tool. Documented as a future MCP release (Resolve).
+  - capability: permission / consent management
+    operations:
+      - createPermission
+      - deletePermission
+      - findPermission
+      - currentPermission
+      - verifyPermission
+    reason: No MCP tool.
+  - capability: tags
+    operations: [createTags, getTags, deleteTags]
+    reason: No MCP tool.
+  - capability: audience
+    operations: [createAudience, downloadAudience]
+    reason: No MCP tool.
+  - capability: address normalization
+    operations: [normalizeAddress]
+    reason: No MCP tool.
+
+coverage:
+  tools_named: 1
+  tools_bound: 1
+  mcp_only: 0
+  rest_operations_total: 17
+  rest_operations_with_tool: 1
+  rest_operations_without_tool: 16

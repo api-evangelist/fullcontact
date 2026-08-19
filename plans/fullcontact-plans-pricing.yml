@@ -1,0 +1,50 @@
+generated: '2026-08-14'
+method: searched
+source: https://www.fullcontact.com/pricing/
+description: >-
+  FullContact publishes no plan or price. https://www.fullcontact.com/pricing/
+  is a 301 to https://www.fullcontact.com/contact/ — a contact-sales form. Rate
+  limits above the 6,000 QPM default are also routed through Sales. Recording
+  the zero explicitly: this is a sales-gated commercial model, not a missing
+  measurement.
+plan_count: 0
+pricing_model: contact-sales
+currency: null
+free_tier: unknown
+
+plans: []
+
+evidence:
+  - url: https://www.fullcontact.com/pricing/
+    status: 200
+    final_url: https://www.fullcontact.com/contact/
+    note: 'Redirects to the "Contact Us" form; no tiers, prices, or quotas are shown.'
+  - url: https://www.fullcontact.com/contact-us/
+    note: >-
+      Named in the rate-limiting docs as the route to a higher rate limit —
+      "should you need a higher rate limit contact our Sales team to get you
+      setup."
+  - url: https://docs.fullcontact.com/docs/tool-reference-enrich_person
+    note: >-
+      "Premium Insight Bundles ... are returned in the same response when
+      enabled on your account — contact your FullContact account team to add
+      Bundles to your plan." Entitlements are per-account and negotiated.
+
+metering:
+  unit: matched record (one person.enrich call)
+  notes:
+    - A successful MCP fullcontact_enrich_person invocation counts as one person.enrich call.
+    - >-
+      not_found and invalid_input responses also count as one call; errors
+      originating inside the MCP server (unauthorized, internal_error,
+      upstream_timeout) do not.
+    - >-
+      Plans can have overages enabled; those accounts do not receive a 403 for
+      exceeding allotted matches, only for exceeding rate-limit quotas.
+  source: https://docs.fullcontact.com/docs/errors-and-faq
+
+x-evidence:
+  - fetched: '2026-08-14'
+    url: https://www.fullcontact.com/pricing/
+    http_status: 200
+    redirected_to: https://www.fullcontact.com/contact/

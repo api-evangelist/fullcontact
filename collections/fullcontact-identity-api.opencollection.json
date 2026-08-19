@@ -1,0 +1,66 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FullContact V3 Address Identity API",
+    "version": "v3"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Identity",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "mapIdentity",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.fullcontact.com/v3/identity.map",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "resolveIdentity",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.fullcontact.com/v3/identity.resolve",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "deleteIdentity",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.fullcontact.com/v3/identity.delete",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

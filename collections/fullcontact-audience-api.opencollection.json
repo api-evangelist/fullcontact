@@ -1,0 +1,52 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FullContact V3 Address Audience API",
+    "version": "v3"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Audience",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "createAudience",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.fullcontact.com/v3/audience.create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "downloadAudience",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.fullcontact.com/v3/audience.download",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

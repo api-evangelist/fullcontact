@@ -1,0 +1,124 @@
+generated: '2026-08-14'
+method: searched
+source: >-
+  https://github.com/fullcontact plus the public registry metadata endpoints
+  (proxy.golang.org, pypi.org, search.maven.org, registry.npmjs.org,
+  rubygems.org, api.nuget.org). Every version/published pair below was read
+  from the registry, not from a README.
+description: >-
+  First-party FullContact client libraries for the V3 API. The currency picture
+  is the finding: the newest official SDK release is the Go client at
+  v2.1.0 (2024-02-09); Python and Java both last shipped 4.0.0 in July 2022,
+  the npm package last shipped in 2019, and the Ruby gem in 2017. FullContact
+  shipped a hosted MCP server in 2026 while its REST SDKs have gone two to nine
+  years without a release.
+
+packages:
+  - language: go
+    registry: go
+    name: github.com/fullcontact/fullcontact-go
+    url: https://pkg.go.dev/github.com/fullcontact/fullcontact-go
+    source: https://github.com/fullcontact/fullcontact-go
+    install: go get github.com/fullcontact/fullcontact-go
+    official: true
+    version: v2.1.0+incompatible
+    published: '2024-02-09'
+    note: >-
+      "Official Go Client for FullContact V3 APIs". Version and date read from
+      https://proxy.golang.org/github.com/fullcontact/fullcontact-go/@latest.
+
+  - language: python
+    registry: pypi
+    name: python-fullcontact
+    url: https://pypi.org/project/python-fullcontact/
+    source: https://github.com/fullcontact/fullcontact-python-client
+    install: pip install python-fullcontact
+    official: true
+    version: 4.0.0
+    published: '2022-07-01'
+    note: >-
+      "Client library for FullContact V3 Enrich and Resolve APIs". Version and
+      date from https://pypi.org/pypi/python-fullcontact/json.
+
+  - language: java
+    registry: maven
+    name: com.fullcontact.client:java11
+    url: https://central.sonatype.com/artifact/com.fullcontact.client/java11
+    source: https://github.com/fullcontact/fullcontact-java-client
+    install: "implementation 'com.fullcontact.client:java11:4.0.0'"
+    official: true
+    version: 4.0.0
+    published: '2022-07-04'
+    note: Java 11 build. Coordinates from the repo README; date from Maven Central search.
+
+  - language: java
+    registry: maven
+    name: com.fullcontact.client:java8
+    url: https://central.sonatype.com/artifact/com.fullcontact.client/java8
+    source: https://github.com/fullcontact/fullcontact-java-client
+    install: "implementation 'com.fullcontact.client:java8:4.0.0'"
+    official: true
+    version: 4.0.0
+    published: '2022-07-04'
+    note: Java 8 build of the same client.
+
+  - language: javascript
+    registry: npm
+    name: fullcontact-node-sdk
+    url: https://www.npmjs.com/package/fullcontact-node-sdk
+    source: https://github.com/fullcontact/fullcontact-node-sdk
+    install: npm install fullcontact-node-sdk
+    official: true
+    version: 1.1.2
+    published: '2019-11-18'
+    note: >-
+      "Node.js SDK for FullContact Enrich APIs". repository field on the npm
+      record points at github.com/fullcontact/fullcontact-node-sdk, confirming
+      first-party. Version and date from https://registry.npmjs.org.
+
+  - language: ruby
+    registry: rubygems
+    name: fullcontact
+    url: https://rubygems.org/gems/fullcontact
+    source: https://github.com/fullcontact/fullcontact-api-ruby
+    install: gem install fullcontact
+    official: true
+    deprecated: true
+    version: 0.18.0
+    published: '2017-07-14'
+    note: >-
+      Authored by "FullContact, Inc.". The backing repository
+      fullcontact/fullcontact-api-ruby is ARCHIVED on GitHub and the gem
+      predates the V3 API.
+
+  - language: dotnet
+    registry: nuget
+    name: FullContact.Contacts.API
+    url: https://www.nuget.org/packages/FullContact.Contacts.API
+    source: https://github.com/fullcontact/contacts-api-dotnet
+    install: dotnet add package FullContact.Contacts.API
+    official: false
+    version: 1.0.3
+    published: '2017-12-14'
+    note: >-
+      Listed for completeness, NOT counted as an official V3 SDK. It targets
+      the legacy Contacts API (Contacts+), the NuGet package is owned by an
+      individual account rather than FullContact, and the backing GitHub
+      repository is archived.
+
+archived_or_superseded:
+  - name: fullcontact/fullcontact4j
+    url: https://github.com/fullcontact/fullcontact4j
+    note: Explicitly marked "[DEPRECATED] A Java client for the FullContact API"; superseded by com.fullcontact.client.
+  - name: fullcontact/fullcontact
+    url: https://github.com/fullcontact/fullcontact
+    note: Archived "FullContact API bindings for Node.js"; superseded by fullcontact-node-sdk.
+  - name: fullcontact/full.contacts-api-client
+    url: https://github.com/fullcontact/full.contacts-api-client
+    note: Archived Clojure SDK for the legacy Contacts API.
+
+summary:
+  official_sdk_count: 6
+  languages: [go, python, java, javascript, ruby]
+  newest_official_release: '2024-02-09'
+  oldest_official_release: '2017-07-14'

@@ -1,0 +1,99 @@
+generated: '2026-08-14'
+method: searched
+source: https://docs.fullcontact.com/docs/mcp-server-overview
+description: >-
+  FullContact publishes a first-party hosted (remote) Model Context Protocol
+  server that wraps the person.enrich API. It is authenticated with the same
+  FullContact API key used for the REST API — there is no separate MCP
+  credential and no OAuth flow. The live tool catalog was read anonymously with
+  an unauthenticated tools/list JSON-RPC call, so the inputSchema below is the
+  server's own, not a guess.
+status: published
+
+deployment:
+  mode: remote
+  endpoint: https://api.fullcontact.com/v3/mcp
+  auth: api-key
+  verified: probed
+  note: >-
+    Remote HTTP endpoint an MCP client POSTs to directly. FullContact's
+    Quickstart also shows Claude Desktop reaching it through the generic
+    `npx -y mcp-remote https://api.fullcontact.com/v3/mcp` bridge — that bridge
+    is a third-party shim, not a FullContact-published stdio package, so the
+    mode is remote rather than both.
+
+server:
+  name: fullcontact
+  transport: http
+  url: https://api.fullcontact.com/v3/mcp
+  authentication:
+    scheme: Bearer
+    header: Authorization
+    value: Bearer <fullcontact-api-key>
+    docs: https://docs.fullcontact.com/docs/authentication
+    note: >-
+      Same API key as the REST API; the key must have the person.enrich
+      entitlement. Calls count against the account's normal rate limits and
+      quota.
+  clients_documented:
+    - Claude Desktop
+    - Claude Code
+    - Gemini CLI
+    - Cursor
+    - VS Code
+    - ChatGPT (Custom Connector)
+
+tools:
+  - name: fullcontact_enrich_person
+    description: >-
+      Enriches person data using email, phone, social profiles, or
+      name+location. Returns demographic, employment, and social profile
+      information from FullContact.
+    source_operation: openapi/fullcontact-enrich-api-openapi.yml#enrichPerson
+    backing_api: POST https://api.fullcontact.com/v3/person.enrich
+    input_schema: mcp/fullcontact-mcp-tools.json
+    inputs: [email, phone, twitter, linkedin, name, location]
+    note: >-
+      The documentation names this tool `enrich_person`; the live server
+      advertises it as `fullcontact_enrich_person`. The live name is what an
+      agent must call.
+
+roadmap:
+  documented: >-
+    "Additional tools (company enrichment, Resolve, Acumen) will follow in
+    future releases." — MCP Server Overview, updated May 2026.
+
+errors:
+  envelope: '{"error":{"code","message","request_id","retry_after_seconds"}}'
+  catalog: errors/fullcontact-problem-types.yml
+  docs: https://docs.fullcontact.com/docs/errors-and-faq
+
+compliance:
+  data_persistence: >-
+    FullContact documents that the MCP server processes inputs in memory and
+    does not write enrichment payloads to disk; operational logs carry request
+    ids, latency and error codes only.
+  soc2: >-
+    "The hosted MCP Server runs inside FullContact's existing SOC 2 boundary."
+    — https://docs.fullcontact.com/docs/authentication
+
+docs:
+  overview: https://docs.fullcontact.com/docs/mcp-server-overview
+  quickstart: https://docs.fullcontact.com/docs/quickstart
+  authentication: https://docs.fullcontact.com/docs/authentication
+  tool_reference: https://docs.fullcontact.com/docs/tool-reference-enrich_person
+  errors: https://docs.fullcontact.com/docs/errors-and-faq
+
+x-evidence:
+  - fetched: '2026-08-14'
+    url: https://api.fullcontact.com/v3/mcp
+    method: 'POST {"jsonrpc":"2.0","id":1,"method":"tools/list"}'
+    http_status: 200
+    content_type: application/json;charset=utf-8
+    result: 1 tool returned anonymously, with full inputSchema
+  - fetched: '2026-08-14'
+    url: https://docs.fullcontact.com/docs/mcp-server-overview.md
+    http_status: 200
+  - fetched: '2026-08-14'
+    url: https://docs.fullcontact.com/docs/tool-reference-enrich_person.md
+    http_status: 200

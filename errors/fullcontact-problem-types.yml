@@ -1,0 +1,131 @@
+generated: '2026-08-14'
+method: searched
+source: https://docs.fullcontact.com/docs/response-codes-errors
+description: >-
+  FullContact's published response-code reference for the V3 REST API, plus the
+  separate normalized error taxonomy the hosted MCP server returns. These are
+  two different envelopes and an agent has to handle both: REST returns a bare
+  {status, message} JSON body, while MCP returns {error:{code, message,
+  request_id, retry_after_seconds}}.
+format: custom-json
+rfc9457: false
+
+envelope:
+  shape: '{"status": <int>, "message": "<string>"}'
+  content_type: application/json
+  note: >-
+    "All responses from the FullContact API use HTTPS status codes along with
+    additional information encoded as JSON in the response body in the message
+    field... Different errors may result in the same HTTPS status code. Because
+    of this, it is important to observe not only the response code, but also the
+    JSON body."
+  observed:
+    fetched: '2026-08-14'
+    request: GET https://api.fullcontact.com/openapi.json
+    http_status: 404
+    body: '{ "status":404, "message":"Endpoint GET /openapi.json not found. Please check https://docs.fullcontact.com or contact support@fullcontact.com" }'
+
+problems:
+  - status: 200
+    title: OK
+    detail: The request was successful.
+  - status: 202
+    title: Accepted
+    detail: >-
+      Your request is currently being processed. You can check again later to
+      see the request has been processed. Also returned when a webhookUrl is
+      supplied — the body confirms the response will be POSTed to the webhook.
+  - status: 400
+    title: Bad Request
+    detail: Your request was malformed.
+  - status: 403
+    title: Forbidden
+    detail: >-
+      Your API key is invalid, missing, or has exceeded its quota. Plans with
+      overages enabled do not receive a 403 for exceeding allotted matches —
+      only for exceeding rate limit quotas.
+  - status: 404
+    title: Not Found
+    detail: The request query was searched in the past 24 hours and nothing was found.
+  - status: 405
+    title: Method Not Allowed
+    detail: >-
+      You have queried the API with an unsupported HTTPS method. Retry your
+      query with either GET or POST.
+  - status: 410
+    title: Gone
+    detail: >-
+      This resource cannot be found. You will receive this status code if you
+      attempt to query the deprecated V1 endpoints.
+  - status: 422
+    title: Invalid
+    detail: Invalid or missing API query parameter.
+  - status: 429
+    title: Too Many Requests
+    detail: >-
+      Returned when the delay needed to stay inside the rate limit would exceed
+      1000ms. The response is itself delayed by the maximum rate-limiting
+      latency so it can be retried immediately.
+    source: https://docs.fullcontact.com/docs/rate-limiting
+  - status: 500
+    title: Server Error
+    detail: >-
+      Something is broken on FullContact's side. Contact support@fullcontact.com
+      for assistance.
+  - status: 503
+    title: Service Unavailable
+    detail: >-
+      There is a transient downstream error condition. A Retry-After header is
+      included dictating when to attempt the call again.
+    headers: [Retry-After]
+
+mcp_errors:
+  source: https://docs.fullcontact.com/docs/errors-and-faq
+  envelope: '{"error": {"code": "<string>", "message": "<string>", "request_id": "<string>", "retry_after_seconds": <int>}}'
+  note: >-
+    request_id is always included. retry_after_seconds is present only on
+    retryable errors.
+  codes:
+    - code: unauthorized
+      http_analog: 401
+      retryable: false
+      meaning: Missing or invalid Authorization header.
+    - code: forbidden
+      http_analog: 403
+      retryable: false
+      meaning: API key is valid but lacks the person.enrich entitlement.
+    - code: invalid_input
+      http_analog: 400
+      retryable: false
+      meaning: Request did not satisfy the input schema (e.g. location without name).
+    - code: not_found
+      http_analog: 404
+      retryable: false
+      meaning: >-
+        No person matched the supplied identifiers. FullContact notes this is
+        not an error in the agentic sense — agents should treat it as a normal
+        miss and continue.
+    - code: rate_limit_exceeded
+      http_analog: 429
+      retryable: true
+      meaning: Account rate limit hit. Honor retry_after_seconds.
+    - code: upstream_unavailable
+      http_analog: 502/503
+      retryable: true
+      meaning: Transient failure calling person.enrich.
+    - code: upstream_timeout
+      http_analog: 504
+      retryable: true
+      meaning: person.enrich did not respond within the configured timeout.
+    - code: internal_error
+      http_analog: 500
+      retryable: false
+      meaning: Unexpected MCP Server failure. Open a support ticket with request_id.
+
+x-evidence:
+  - fetched: '2026-08-14'
+    url: https://docs.fullcontact.com/docs/response-codes-errors.md
+    http_status: 200
+  - fetched: '2026-08-14'
+    url: https://docs.fullcontact.com/docs/errors-and-faq.md
+    http_status: 200

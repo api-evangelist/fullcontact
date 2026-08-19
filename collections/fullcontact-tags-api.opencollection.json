@@ -1,0 +1,66 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FullContact V3 Address Tags API",
+    "version": "v3"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Tags",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "createTags",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.fullcontact.com/v3/tags.create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "getTags",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.fullcontact.com/v3/tags.get",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "deleteTags",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.fullcontact.com/v3/tags.delete",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

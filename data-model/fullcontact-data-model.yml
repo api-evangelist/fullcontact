@@ -1,0 +1,121 @@
+generated: '2026-08-14'
+method: searched
+source: >-
+  https://docs.fullcontact.com/docs/multi-field-request (Person Summary Object),
+  https://docs.fullcontact.com/docs/request-properties,
+  https://docs.fullcontact.com/docs/person-insights-bundles
+description: >-
+  The FullContact V3 entity model, read from the documented object reference
+  rather than derived from a spec — the OpenAPI files in openapi/ are API
+  Evangelist best-effort descriptions whose only schema is a permissive
+  `Object`, so there is nothing to derive $refs from. The model is
+  person-centric: one Person entity, addressed by any of several identifiers,
+  carrying a `details` object whose contents are gated by the Insights Bundles
+  entitled on the calling account.
+
+root_entity: Person
+
+entities:
+  - name: Person
+    id_field: PID (Person ID)
+    description: >-
+      The unified person record resolved from the identity graph. Returned as a
+      Person Summary object with a details sub-object.
+    identifiers_accepted:
+      - {field: email, note: 'plain text, or MD5 / SHA-1 / SHA-256 hash'}
+      - {field: emails, note: array form}
+      - {field: phone, note: E.164}
+      - {field: name, note: 'must be paired with location; cannot be a sole input'}
+      - {field: location, note: 'object: addressLine1, city, region, regionCode, postalCode, country'}
+      - {field: linkedin, note: profile URL}
+      - {field: twitter, note: username or profile URL}
+      - {field: maids, note: mobile advertising ids}
+    summary_fields:
+      - {name: fullName, type: string, description: Full name of the contact.}
+      - {name: ageRange, type: string, description: Age range of the contact.}
+      - {name: gender, type: string, description: Gender of the contact.}
+      - {name: location, type: string, description: 'Location of the contact; exactness varies with data quality.'}
+      - {name: title, type: string, description: Current or most recent job title.}
+      - {name: organization, type: string, description: Current or most recent place of work.}
+      - {name: twitter, type: string, description: Twitter/X profile URL.}
+      - {name: linkedin, type: string, description: LinkedIn profile URL.}
+      - {name: bio, type: string, description: Short biography.}
+      - {name: avatar, type: string, description: Profile image URL.}
+      - {name: details, type: object, description: Attribute detail, populated per entitled Insights Bundle.}
+    details_keys:
+      - {key: name, bundles: [Individual, Demographic, Consumer Email, Premium Phone, Premium Address]}
+      - {key: age, bundles: [Individual, Demographic]}
+      - {key: gender, bundles: [Individual, Core Professional, Demographic]}
+      - {key: locations, bundles: [Individual, Individual Plus, Demographic, Premium Address, Core Professional]}
+      - {key: education, bundles: [Individual, Individual Plus, Demographic]}
+      - {key: emails, bundles: [Core Professional, Consumer Email, Email Hashes, Email Hash Activity, Professional]}
+      - {key: phones, bundles: [Core Professional, Premium Phone, Professional]}
+      - {key: employment, bundles: [Core Professional, Employment History, Professional]}
+      - {key: profiles, bundles: [Core Professional, Demographic, Social]}
+      - {key: photos, bundles: [Demographic]}
+      - {key: households, bundles: [Individual Plus]}
+      - {key: demographics, bundles: [Demographic]}
+      - {key: finances, bundles: [Individual Plus, Demographic]}
+      - {key: census, bundles: [Demographic]}
+      - {key: household, bundles: [Demographic]}
+      - {key: triggers, bundles: [Individual Plus]}
+      - {key: purchases, bundles: [Individual Plus]}
+      - {key: identifiers, bundles: [Mobile Advertising IDs (MAIDs)]}
+      - {key: interests, bundles: [Interests]}
+
+  - name: Company
+    description: Company record returned by company.enrich and company.search.
+    operations: [enrichCompany, searchCompany]
+    note: >-
+      The v2 Company APIs and the v3 Company Name Lookup are announced as
+      deprecated in the docs changelog.
+
+  - name: Permission
+    description: >-
+      Consent record attached to a person, following the IAB TCF v2.0 purposes
+      model.
+    fields:
+      - {name: consentPurposes, type: array, description: 'purposeId, channel[], ttl, enabled'}
+      - {name: locale, type: string}
+      - {name: ipAddress, type: string}
+      - {name: language, type: string}
+      - {name: collectionMethod, type: string, description: 'e.g. cookiePopUp'}
+      - {name: collectionLocation, type: string, description: 'e.g. homepage'}
+      - {name: policyUrl, type: string}
+      - {name: termsService, type: string}
+    channels: [email, mobile, web, phone, offline]
+    operations: [createPermission, deletePermission, findPermission, currentPermission, verifyPermission]
+
+  - name: Tag
+    description: Customer-defined key/value labels attached to a mapped record.
+    operations: [createTags, getTags, deleteTags]
+
+  - name: Audience
+    description: Exportable audience built from tagged records; created then downloaded.
+    operations: [createAudience, downloadAudience]
+
+relationships:
+  - {from: Person, to: Permission, kind: has_many, via: permission.consentPurposes}
+  - {from: Person, to: Tag, kind: has_many, via: identity.map tags}
+  - {from: Audience, to: Tag, kind: belongs_to, via: tag selection}
+  - {from: Person, to: Company, kind: has_many, via: details.employment}
+  - {from: Person, to: Person, kind: has_one, via: PID (persistent Person ID from identity.resolve)}
+
+notes:
+  - >-
+    `details` is entitlement-shaped, not schema-shaped: the same operation
+    returns different keys for different accounts depending on which Insights
+    Bundles are enabled. Any agent consuming this API must treat every details
+    key as optional.
+  - >-
+    When only a hashed identifier is supplied, clear-text PII fields (name,
+    plain email, phone, social handles) are omitted from the response by
+    FullContact's privacy controls.
+
+x-evidence:
+  - fetched: '2026-08-14'
+    url: https://docs.fullcontact.com/docs/multi-field-request.md
+    http_status: 200
+  - fetched: '2026-08-14'
+    url: https://docs.fullcontact.com/docs/request-properties.md
+    http_status: 200

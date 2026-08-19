@@ -1,0 +1,62 @@
+generated: '2026-08-14'
+method: searched
+source: >-
+  https://docs.fullcontact.com/docs/configure-fullcontact-webtag,
+  https://docs.fullcontact.com/docs/webtag-installation-instructions
+description: >-
+  FullContact's client-side surface is the FullContact webtag — a JavaScript tag
+  generated in the FullContact Platform and embedded on a customer's own
+  websites. It is not an SDK and not a UI widget library: it is a first-party
+  identity/recognition tag that runs in the visitor's browser and feeds the
+  Customer Recognition and Acumen products. Installation is documented for
+  seven host platforms, which is the closest thing FullContact ships to an
+  embeddable component family.
+
+components:
+  - family: FullContact webtag
+    kind: javascript tag
+    products: [Customer Recognition, Acumen]
+    distribution: >-
+      Generated per account in the FullContact Platform configuration wizard
+      and copied into the site. No public npm/CDN package — the tag embeds an
+      account-scoped key, so there is no version to pin or registry to query.
+    configuration:
+      - name: Domain whitelist
+        detail: >-
+          Every site the tag runs on must be whitelisted; a `.*` regular
+          expression whitelists all domains for that webtag key.
+      - name: Advanced settings
+        detail: Configured in the same wizard alongside the domain whitelist.
+    related_services:
+      - name: FullContact Webtag ID Service
+        url: https://docs.fullcontact.com/docs/fullcontact-webtag-id-service
+      - name: Consent Management Feature
+        url: https://docs.fullcontact.com/docs/fullcontact-consent-management-feature
+      - name: Quality Filtering
+        url: https://docs.fullcontact.com/docs/quality-filtering-toggle
+    docs:
+      configure: https://docs.fullcontact.com/docs/configure-fullcontact-webtag
+      install: https://docs.fullcontact.com/docs/webtag-installation-instructions
+
+install_targets:
+  - {platform: WordPress, url: 'https://docs.fullcontact.com/docs/wordpress-installation'}
+  - {platform: Wix, url: 'https://docs.fullcontact.com/docs/wix-installation'}
+  - {platform: Webflow, url: 'https://docs.fullcontact.com/docs/webflow-installation'}
+  - {platform: Framer, url: 'https://docs.fullcontact.com/docs/framer-installation'}
+  - {platform: GoDaddy Website Builder, url: 'https://docs.fullcontact.com/docs/godaddy-website-builder'}
+  - {platform: Google Analytics, url: 'https://docs.fullcontact.com/docs/google-analytics'}
+  - {platform: Tealium, url: 'https://docs.fullcontact.com/recipes/tealium-fullcontact-customer-recognition'}
+
+not_published:
+  - versioned public CDN or npm distribution of the tag
+  - web components / element library
+  - embeddable dashboard or hosted UI surface
+
+x-evidence:
+  - fetched: '2026-08-14'
+    url: https://docs.fullcontact.com/docs/configure-fullcontact-webtag.md
+    http_status: 200
+  - fetched: '2026-08-14'
+    url: https://docs.fullcontact.com/llms.txt
+    http_status: 200
+    note: Indexes all seven installation guides listed above.

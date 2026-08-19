@@ -1,0 +1,60 @@
+generated: '2026-08-14'
+method: probed
+source: live GET of each /.well-known/ path on every FullContact host in apis.yml and openapi servers[]
+description: >-
+  Recorded absence. Every /.well-known/ discovery path was probed on all three
+  FullContact hosts on 2026-08-14 and every one returned 404. No document was
+  served, so no WellKnown or SecurityTxt pointer is wired in apis.yml — this
+  file documents that the surface is empty, not that it exists.
+result: none
+documents_found: 0
+
+hosts:
+  - host: https://api.fullcontact.com
+    note: >-
+      Returns the API's own JSON 404 envelope
+      ({"status":404,"message":"Endpoint GET ... not found"}) for every path,
+      which confirms the request reached the API and was genuinely not found.
+    documents:
+      - {path: /.well-known/security.txt, status: 404}
+      - {path: /.well-known/openid-configuration, status: 404}
+      - {path: /.well-known/oauth-authorization-server, status: 404}
+      - {path: /.well-known/oauth-protected-resource, status: 404}
+      - {path: /.well-known/api-catalog, status: 404}
+      - {path: /.well-known/ai-plugin.json, status: 404}
+      - {path: /.well-known/agent-card.json, status: 404}
+      - {path: /.well-known/agent.json, status: 404}
+  - host: https://www.fullcontact.com
+    note: WordPress 404 page (text/html) on every path.
+    documents:
+      - {path: /.well-known/security.txt, status: 404}
+      - {path: /.well-known/openid-configuration, status: 404}
+      - {path: /.well-known/oauth-authorization-server, status: 404}
+      - {path: /.well-known/oauth-protected-resource, status: 404}
+      - {path: /.well-known/api-catalog, status: 404}
+      - {path: /.well-known/ai-plugin.json, status: 404}
+      - {path: /.well-known/agent-card.json, status: 404}
+      - {path: /.well-known/agent.json, status: 404}
+  - host: https://docs.fullcontact.com
+    note: ReadMe-hosted docs 404 page (text/html) on every path.
+    documents:
+      - {path: /.well-known/security.txt, status: 404}
+      - {path: /.well-known/openid-configuration, status: 404}
+      - {path: /.well-known/oauth-authorization-server, status: 404}
+      - {path: /.well-known/oauth-protected-resource, status: 404}
+      - {path: /.well-known/api-catalog, status: 404}
+      - {path: /.well-known/ai-plugin.json, status: 404}
+      - {path: /.well-known/agent-card.json, status: 404}
+      - {path: /.well-known/agent.json, status: 404}
+
+notes:
+  - >-
+    The hosted MCP server at https://api.fullcontact.com/v3/mcp is API-key
+    authenticated and publishes neither /.well-known/oauth-authorization-server
+    nor /.well-known/oauth-protected-resource, consistent with its documented
+    "no OAuth flow" design.
+  - >-
+    FullContact does run a vulnerability disclosure program, but it is
+    published as an HTML page at
+    https://www.fullcontact.com/security/responsible-disclosure/ rather than as
+    an RFC 9116 security.txt — see security/fullcontact-vulnerability-disclosure.yml.
