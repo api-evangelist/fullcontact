@@ -1,13 +1,6 @@
 aid: fullcontact
 name: FullContact
-description: >-
-  FullContact is a privacy-safe identity resolution platform that helps
-  businesses recognize and understand customers across digital channels by
-  unifying fragmented identifiers (email, phone, name, address, device IDs)
-  into a single person-centric graph. The FullContact V3 REST API exposes
-  Enrich, Resolve, Acumen, and Identity Streme products for enriching person
-  and company records, recognizing identities, and managing customer data.
-  Authentication is via Bearer API key sent in the Authorization header.
+description: FullContact is a privacy-safe identity resolution platform that helps businesses recognize and understand customers across digital channels by unifying fragmented identifiers (email, phone, name, address, device IDs) into a single person-centric graph. The FullContact V3 REST API exposes Enrich, Resolve, Acumen, and Identity Streme products for enriching person and company records, recognizing identities, and managing customer data. Authentication is via Bearer API key sent in the Authorization header.
 type: Index
 deliveryModel:
   model: saas
@@ -38,25 +31,21 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/fullcontact.png
 tags:
-  - Identity Resolution
-  - Customer Data
-  - Data Enrichment
-  - Person API
-  - Company API
-  - Privacy-Safe Identity
-  - Customer Recognition
-url: >-
-  https://raw.githubusercontent.com/api-evangelist/fullcontact/refs/heads/main/apis.yml
+- Identity Resolution
+- Customer Data
+- Data Enrichment
+- Person API
+- Company API
+- Privacy-Safe Identity
+- Customer Recognition
+url: https://raw.githubusercontent.com/api-evangelist/fullcontact/refs/heads/main/apis.yml
 created: '2026-05-11'
 modified: '2026-08-14'
 specificationVersion: '0.23'
 apis:
 - aid: fullcontact:v3-api
   name: FullContact V3 API
-  description: >-
-    REST API providing person enrichment, company enrichment, identity resolution, mapping, and Acumen
-    lead-details endpoints. Authentication uses a Bearer API key passed in the Authorization header (e.g.
-    "Authorization: Bearer FC_API_KEY").
+  description: 'REST API providing person enrichment, company enrichment, identity resolution, mapping, and Acumen lead-details endpoints. Authentication uses a Bearer API key passed in the Authorization header (e.g. "Authorization: Bearer FC_API_KEY").'
   humanURL: https://docs.fullcontact.com
   baseURL: https://api.fullcontact.com/v3
   tags:
@@ -146,90 +135,95 @@ apis:
     url: openapi/fullcontact-tags-api-openapi.yml
   - type: Overlay
     url: overlays/fullcontact-tags-api-overlay.yaml
-common:
-  - type: AgenticAccess
-    url: agentic-access/fullcontact-agentic-access.yml
-  - type: VulnerabilityDisclosure
-    url: security/fullcontact-vulnerability-disclosure.yml
-  - type: DomainSecurity
-    url: security/fullcontact-domain-security.yml
-  - type: Authentication
-    url: authentication/fullcontact-authentication.yml
-  - type: Website
-    url: https://www.fullcontact.com
+- name: Full Contact
+  description: Get Social Media profiles and contact Information
+  humanURL: https://docs.fullcontact.com/
+  baseURL: https://docs.fullcontact.com/
+  tags:
+  - Social
+  properties:
   - type: Documentation
-    url: https://docs.fullcontact.com
-  - type: DeveloperPortal
-    url: https://www.fullcontact.com/developer-portal/
-  - type: GitHubOrganization
-    url: https://github.com/fullcontact
-  - type: SignUp
-    url: https://platform.fullcontact.com/signup
-  - type: Pricing
-    url: https://www.fullcontact.com/pricing/
-  - type: Support
-    url: https://support.fullcontact.com/portal/en/home
-  - type: TermsOfService
-    url: https://www.fullcontact.com/privacy/terms-of-use/
-  - type: PrivacyPolicy
-    url: https://www.fullcontact.com/privacy/
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/fullcontact-inc-
-  - type: LlmsText
-    url: https://docs.fullcontact.com/llms.txt
-  - type: LLMsTxt
-    url: llms/fullcontact-llms.txt
-  - type: Blog
-    url: https://www.fullcontact.com/blog/
-  - type: MCPServer
-    url: mcp/fullcontact-mcp.yml
-  - type: ToolCrosswalk
-    url: mcp/fullcontact-tool-crosswalk.yml
-  - type: Packages
-    url: packages/fullcontact-packages.yml
-  - type: SDKs
-    url: packages/fullcontact-packages.yml
-  - type: RateLimits
-    url: rate-limits/fullcontact-rate-limits.yml
-  - type: Plans
-    url: plans/fullcontact-plans-pricing.yml
-  - type: ErrorCatalog
-    url: errors/fullcontact-problem-types.yml
-  - type: Conventions
-    url: conventions/fullcontact-conventions.yml
-  - type: Lifecycle
-    url: lifecycle/fullcontact-lifecycle.yml
-  - type: StatusPage
-    url: https://status.fullcontact.com/
-  - type: ChangeLog
-    url: changelog/fullcontact-changelog.yml
-  - type: Conformance
-    url: conformance/fullcontact-conformance.yml
-  - type: Compliance
-    url: https://trust.fullcontact.com/
-  - type: TrustCenter
-    url: security/fullcontact-trust-center.yml
-  - type: Security
-    url: https://www.fullcontact.com/security/responsible-disclosure/
-  - type: Sandbox
-    url: sandbox/fullcontact-sandbox.yml
-  - type: Webhooks
-    url: asyncapi/fullcontact-webhooks.yml
-  - type: Components
-    url: components/fullcontact-components.yml
-  - type: DataModel
-    url: data-model/fullcontact-data-model.yml
-  - type: AgentSkill
-    url: skills/_index.yml
-# well-known/fullcontact-well-known.yml is deliberately NOT wired as a pointer:
-# every /.well-known/ path 404d on every host, so the file records an absence.
-# No WellKnown / SecurityTxt / AgentCard / Idempotency / Deprecation / CLI
-# pointer is emitted for the same reason — see the artifacts for the evidence.
+    url: https://docs.fullcontact.com/
+common:
+- type: AgenticAccess
+  url: agentic-access/fullcontact-agentic-access.yml
+- type: VulnerabilityDisclosure
+  url: security/fullcontact-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/fullcontact-domain-security.yml
+- type: Authentication
+  url: authentication/fullcontact-authentication.yml
+- type: Website
+  url: https://www.fullcontact.com
+- type: Documentation
+  url: https://docs.fullcontact.com
+- type: DeveloperPortal
+  url: https://www.fullcontact.com/developer-portal/
+- type: GitHubOrganization
+  url: https://github.com/fullcontact
+- type: SignUp
+  url: https://platform.fullcontact.com/signup
+- type: Pricing
+  url: https://www.fullcontact.com/pricing/
+- type: Support
+  url: https://support.fullcontact.com/portal/en/home
+- type: TermsOfService
+  url: https://www.fullcontact.com/privacy/terms-of-use/
+- type: PrivacyPolicy
+  url: https://www.fullcontact.com/privacy/
+- type: LinkedIn
+  url: https://www.linkedin.com/company/fullcontact-inc-
+- type: LlmsText
+  url: https://docs.fullcontact.com/llms.txt
+- type: LLMsTxt
+  url: llms/fullcontact-llms.txt
+- type: Blog
+  url: https://www.fullcontact.com/blog/
+- type: MCPServer
+  url: mcp/fullcontact-mcp.yml
+- type: ToolCrosswalk
+  url: mcp/fullcontact-tool-crosswalk.yml
+- type: Packages
+  url: packages/fullcontact-packages.yml
+- type: SDKs
+  url: packages/fullcontact-packages.yml
+- type: RateLimits
+  url: rate-limits/fullcontact-rate-limits.yml
+- type: Plans
+  url: plans/fullcontact-plans-pricing.yml
+- type: ErrorCatalog
+  url: errors/fullcontact-problem-types.yml
+- type: Conventions
+  url: conventions/fullcontact-conventions.yml
+- type: Lifecycle
+  url: lifecycle/fullcontact-lifecycle.yml
+- type: StatusPage
+  url: https://status.fullcontact.com/
+- type: ChangeLog
+  url: changelog/fullcontact-changelog.yml
+- type: Conformance
+  url: conformance/fullcontact-conformance.yml
+- type: Compliance
+  url: https://trust.fullcontact.com/
+- type: TrustCenter
+  url: security/fullcontact-trust-center.yml
+- type: Security
+  url: https://www.fullcontact.com/security/responsible-disclosure/
+- type: Sandbox
+  url: sandbox/fullcontact-sandbox.yml
+- type: Webhooks
+  url: asyncapi/fullcontact-webhooks.yml
+- type: Components
+  url: components/fullcontact-components.yml
+- type: DataModel
+  url: data-model/fullcontact-data-model.yml
+- type: AgentSkill
+  url: skills/_index.yml
 x-enrichment:
   date: '2026-08-14'
   status: enriched
   artifacts_added: 27
   pass: local-v1
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
