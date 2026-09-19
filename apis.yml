@@ -81,6 +81,8 @@ apis:
   humanURL: https://docs.fullcontact.com
   baseURL: https://api.fullcontact.com/v3
   tags:
+  - Audiences
+  tags_raw:
   - Audience
   properties:
   - type: OpenAPI
