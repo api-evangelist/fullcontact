@@ -1,14 +1,12 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: FullContact V3 Address Permission API
+  title: FullContact V3 Permission API
   version: v3
   description: 'Best-effort OpenAPI 3.1 description of the FullContact V3 REST API for
 
     person/company enrichment, identity resolution, permissions, tags, and
 
-    audience download. Generated from public documentation; not an official spec.
-
-    '
+    audience download. Generated from public documentation; not an official spec.'
   contact:
     name: FullContact Developer Portal
     url: https://docs.fullcontact.com
@@ -34,6 +32,8 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/Ok'
+      summary: Create permission
+      x-summary-source: derived
   /v3/permission.delete:
     post:
       tags:
@@ -48,6 +48,8 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/Ok'
+      summary: Delete permission
+      x-summary-source: derived
   /v3/permission.find:
     post:
       tags:
@@ -62,6 +64,8 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/Ok'
+      summary: Find permission
+      x-summary-source: derived
   /v3/permission.current:
     post:
       tags:
@@ -76,6 +80,8 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/Ok'
+      summary: Current permission
+      x-summary-source: derived
   /v3/permission.verify:
     post:
       tags:
@@ -90,11 +96,9 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/Ok'
+      summary: Verify permission
+      x-summary-source: derived
 components:
-  schemas:
-    Object:
-      type: object
-      additionalProperties: true
   responses:
     Ok:
       description: Successful response
@@ -102,6 +106,10 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Object'
+  schemas:
+    Object:
+      type: object
+      additionalProperties: true
   securitySchemes:
     bearerAuth:
       type: http

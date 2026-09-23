@@ -1,12 +1,7 @@
 {
   "provider": "fullcontact",
   "sources": [
-    "fullcontact-address-api-openapi.yml",
-    "fullcontact-audience-api-openapi.yml",
-    "fullcontact-enrich-api-openapi.yml",
-    "fullcontact-identity-api-openapi.yml",
-    "fullcontact-permission-api-openapi.yml",
-    "fullcontact-tags-api-openapi.yml"
+    "_original/fullcontact-openapi.yml"
   ],
   "outputs": [
     "fullcontact-address-api-openapi.yml",
@@ -19,6 +14,17 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "fullcontact-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "fullcontact-address-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "fullcontact-audience-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "fullcontact-enrich-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "fullcontact-identity-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "fullcontact-permission-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "fullcontact-tags-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
