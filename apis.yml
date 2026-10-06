@@ -43,7 +43,7 @@ tags:
 - Customer Recognition
 url: https://raw.githubusercontent.com/api-evangelist/fullcontact/refs/heads/main/apis.yml
 created: '2026-05-11'
-modified: '2026-08-14'
+modified: '2026-10-06'
 specificationVersion: '0.23'
 apis:
 - aid: fullcontact:v3-api
@@ -150,6 +150,8 @@ apis:
   - type: Documentation
     url: https://docs.fullcontact.com/
 common:
+- url: https://www.fullcontact.com/feed/
+  type: BlogRSS
 - type: CapabilityMap
   url: capabilities/fullcontact-capability-edges.yml
   name: FullContact Business Capability Map
