@@ -1,17 +1,69 @@
-generated: '2026-07-15'
+generated: '2026-09-23'
 method: generated
-source: openapi/fullcontact-openapi.yml
+source: openapi/fullcontact-address-api-openapi.yml, openapi/fullcontact-audience-api-openapi.yml,
+  openapi/fullcontact-enrich-api-openapi.yml, openapi/fullcontact-identity-api-openapi.yml,
+  openapi/fullcontact-permission-api-openapi.yml, openapi/fullcontact-tags-api-openapi.yml
 description: Recommended x-agentic-access execution contracts, classified heuristically from
   the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
   audience per deployment. See research/curity/agentic-governance/.
 summary:
   operations: 17
   by_action_class:
-    acting: 17
+    acting: 14
+    connected: 3
   by_consequence:
-    write: 17
+    write: 14
+    read: 3
   human_in_the_loop_required: 0
 operations:
+- path: /v3/address.normalize
+  method: post
+  operationId: normalizeAddress
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/audience.create
+  method: post
+  operationId: createAudience
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v3/audience.download
+  method: post
+  operationId: downloadAudience
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
 - path: /v3/person.enrich
   method: post
   operationId: enrichPerson
@@ -48,18 +100,12 @@ operations:
   method: post
   operationId: searchCompany
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
 - path: /v3/identity.map
   method: post
   operationId: mapIdentity
@@ -144,18 +190,12 @@ operations:
   method: post
   operationId: findPermission
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
 - path: /v3/permission.current
   method: post
   operationId: currentPermission
@@ -208,69 +248,15 @@ operations:
   method: post
   operationId: getTags
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
 - path: /v3/tags.delete
   method: post
   operationId: deleteTags
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /v3/audience.create
-  method: post
-  operationId: createAudience
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /v3/audience.download
-  method: post
-  operationId: downloadAudience
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /v3/address.normalize
-  method: post
-  operationId: normalizeAddress
   x-agentic-access:
     action-class: acting
     consequence: write
