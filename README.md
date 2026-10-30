@@ -1,4 +1,4 @@
-# FullContact (fullcontact)
+# FullContact
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,66 +66,157 @@
 
 FullContact is a privacy-safe identity resolution platform that helps businesses recognize and understand customers across digital channels by unifying fragmented identifiers (email, phone, name, address, device IDs) into a single person-centric graph. The FullContact V3 REST API exposes Enrich, Resolve, Acumen, and Identity Streme products for enriching person and company records, recognizing identities, and managing customer data. Authentication is via Bearer API key sent in the Authorization header.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/fullcontact/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/fullcontact/refs/heads/main/apis.yml)
+**Areas:** Identity Resolution · Customer Data · Data Enrichment · Person API · Company API · Privacy-Safe Identity · Customer Recognition
 
-## Scope
+## FullContact on APIs.io
 
-- **Type:** Index
+Everything profiled for FullContact is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/fullcontact/](https://apis.io/providers/fullcontact/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (8)
 
-- Identity Resolution
-- Customer Data
-- Data Enrichment
-- Person API
-- Company API
-- Privacy-Safe Identity
-- Customer Recognition
+- [FullContact V3 API](https://apis.io/apis/fullcontact/v3-api/) — REST API providing person enrichment, company enrichment, identity resolution, mapping, and Acumen lead-details endpoints. Authentication uses a Bearer API…
+- [FullContact Address API](https://apis.io/apis/fullcontact/fullcontact-address-api/) — The Address API from FullContact — 1 operation(s) for address.
+- [FullContact Audience API](https://apis.io/apis/fullcontact/fullcontact-audience-api/) — The Audience API from FullContact — 2 operation(s) for audience.
+- [FullContact Enrich API](https://apis.io/apis/fullcontact/fullcontact-enrich-api/) — The Enrich API from FullContact — 3 operation(s) for enrich.
+- [FullContact Identity API](https://apis.io/apis/fullcontact/fullcontact-identity-api/) — The Identity API from FullContact — 3 operation(s) for identity.
+- [FullContact Permission API](https://apis.io/apis/fullcontact/fullcontact-permission-api/) — The Permission API from FullContact — 5 operation(s) for permission.
+- [FullContact Tags API](https://apis.io/apis/fullcontact/fullcontact-tags-api/) — The Tags API from FullContact — 3 operation(s) for tags.
+- [Full Contact](https://apis.io/apis/fullcontact/full-contact/) — Get Social Media profiles and contact Information
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-05-11
-- **Modified:** 2026-05-11
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### AsyncAPI (1)
 
-### FullContact V3 API
+Event-driven and webhook contracts.
 
-REST API providing person enrichment, company enrichment, identity resolution, mapping, and Acumen lead-details endpoints. Authentication uses a Bearer API key passed in the Authorization header (e.g. "Authorization: Bearer FC_API_KEY").
+- [Fullcontact Webhooks](https://apis.io/asyncapis/fullcontact/fullcontact-webhooks/)
 
-- **Human URL:** [https://docs.fullcontact.com](https://docs.fullcontact.com)
-- **Base URL:** `https://api.fullcontact.com/v3`
+#### MCP servers (1)
 
-#### Tags
+Model Context Protocol servers that expose the API to agents.
 
-- Identity Resolution
-- Person Enrichment
-- Company Enrichment
-- Customer Recognition
-- Acumen
+- [fullcontact](https://apis.io/servers/fullcontact/fullcontact/)
 
-#### Properties
+#### Agentic access (1)
 
-- [Documentation](https://docs.fullcontact.com)
-- [API Reference](https://api.fullcontact.com/v3/docs/methods/contacts.create)
-- [Getting Started](https://docs.fullcontact.com/docs/getting-started)
-- [Developer  Portal](https://www.fullcontact.com/developer-portal/)
-- [Postman Collection](collections/fullcontact.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/fullcontact.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Which operations an agent can call, which act, and which need a human in the loop.
 
-## Common Properties
+- [Fullcontact Agentic Access](https://apis.io/agentic-access/fullcontact/fullcontact-agentic-access/)
+
+#### Collections (7)
+
+Postman and Open Collection request collections.
+
+- [FullContact V3 API](https://apis.io/collections/fullcontact/open-fullcontact/)
+- [FullContact V3 Address API](https://apis.io/collections/fullcontact/open-fullcontact-address-api/)
+- [FullContact V3 Address Audience API](https://apis.io/collections/fullcontact/open-fullcontact-audience-api/)
+- [FullContact V3 Address Enrich API](https://apis.io/collections/fullcontact/open-fullcontact-enrich-api/)
+- [FullContact V3 Address Identity API](https://apis.io/collections/fullcontact/open-fullcontact-identity-api/)
+- [FullContact V3 Address Permission API](https://apis.io/collections/fullcontact/open-fullcontact-permission-api/)
+- [FullContact V3 Address Tags API](https://apis.io/collections/fullcontact/open-fullcontact-tags-api/)
+
+#### Overlays (6)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Fullcontact Address Api Overlay](https://apis.io/overlays/fullcontact/fullcontact-address-api-overlay/)
+- [Fullcontact Audience Api Overlay](https://apis.io/overlays/fullcontact/fullcontact-audience-api-overlay/)
+- [Fullcontact Enrich Api Overlay](https://apis.io/overlays/fullcontact/fullcontact-enrich-api-overlay/)
+- [Fullcontact Identity Api Overlay](https://apis.io/overlays/fullcontact/fullcontact-identity-api-overlay/)
+- [Fullcontact Permission Api Overlay](https://apis.io/overlays/fullcontact/fullcontact-permission-api-overlay/)
+- [Fullcontact Tags Api Overlay](https://apis.io/overlays/fullcontact/fullcontact-tags-api-overlay/)
+
+#### Security (4)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Fullcontact Authentication](https://apis.io/security/fullcontact/fullcontact-authentication/)
+- [Fullcontact Domain Security](https://apis.io/security/fullcontact/fullcontact-domain-security/)
+- [Fullcontact Trust Center](https://apis.io/security/fullcontact/fullcontact-trust-center/)
+- [Fullcontact Vulnerability Disclosure](https://apis.io/security/fullcontact/fullcontact-vulnerability-disclosure/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Fullcontact Plans Pricing](https://apis.io/plans/fullcontact/fullcontact-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Fullcontact Rate Limits](https://apis.io/rate-limits/fullcontact/fullcontact-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.fullcontact.com)
 - [Documentation](https://docs.fullcontact.com)
-- [Developer  Portal](https://www.fullcontact.com/developer-portal/)
-- [GitHub Organization](https://github.com/fullcontact)
-- [Sign Up](https://platform.fullcontact.com/signup)
 - [Pricing](https://www.fullcontact.com/pricing/)
-- [Support](https://www.fullcontact.com/help/)
-- [LinkedIn](https://www.linkedin.com/company/fullcontact-inc-)
-- [L L Ms Txt](https://docs.fullcontact.com/llms.txt)
+- [Sign up](https://platform.fullcontact.com/signup)
+- [Support](https://support.fullcontact.com/portal/en/home)
+- [Blog](https://www.fullcontact.com/blog/)
+- [Security](https://www.fullcontact.com/security/responsible-disclosure/)
+- [Compliance](https://trust.fullcontact.com/)
+- [Terms of service](https://www.fullcontact.com/privacy/terms-of-use/)
+- [Privacy policy](https://www.fullcontact.com/privacy/)
+- [GitHub](https://github.com/fullcontact)
+- [Status](https://status.fullcontact.com/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 55.0** — strong · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 75.0 |
+| Contract quality | 52.8 |
+| Contract governance | 18.2 |
+| Operational transparency | 65.8 |
+| Developer ergonomics | 58.9 |
+| Access clarity | 47.4 |
+
+**Agent readiness 37.9** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | verified |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | yes |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 35.3** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/fullcontact/](https://apis.io/providers/fullcontact/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for FullContact: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/fullcontact/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
